@@ -196,7 +196,11 @@ select {
 --------------------------------------------------------------*/
 
 .site-header {
-	padding-bottom: 1em;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	display: flex;
+	justify-content: space-around;
 }
 
 .header-image {
@@ -379,7 +383,7 @@ select {
 .main-navigation {
 	display: block;
 	margin: 0 auto 2em;
-	padding: 0 1em;
+	padding: 60px 0 1em;
 	max-width: var(--content-width);
 	font-family: var(--highlight-font-family);
 	font-stretch: condensed;

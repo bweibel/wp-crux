@@ -36,6 +36,12 @@ h6 {
 	margin-bottom: 1em;
 }
 
+.page .entry-title {
+	margin: auto;
+	width: 100%;
+	text-align: center;
+}
+
 dfn,
 cite,
 em,
