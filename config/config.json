@@ -41,6 +41,9 @@
       "screenshot.png",
       "assets/css/vendor/**/*.css",
       "assets/js/vendor/**/*.js"
+    ],
+    "additionalFilesToCopy": [
+      "assets/fonts/**/*{.woff,.ttf,.ttc}"
     ]
   }
 }

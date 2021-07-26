@@ -108,6 +108,10 @@ const paths = {
 		src: `${ assetsDir }/images/src/**/*.{jpg,JPG,png,svg,gif,GIF}`,
 		dest: `${ assetsDir }/images/`,
 	},
+	fonts: {
+		src: `${ assetsDir }/fonts/src/*.{ttf,otf,woff,woff2}`,
+		dest: `${ assetsDir }/fonts/`,
+	},
 	export: {
 		src: [],
 		stringReplaceSrc: [

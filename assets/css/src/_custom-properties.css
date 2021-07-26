@@ -5,13 +5,15 @@
  * @link: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
  **/
 
+ @import "_custom-fonts.css";
+
 :root {
 	--content-width: 45rem;
 	--dropdown-symbol-width: 0.7em;
 
 	/* Typography */
 	--global-font-family: "Crimson Text", serif;
-	--highlight-font-family: "Roboto Condensed", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--highlight-font-family: "Landry Gothic", "Helvetica Neue", "Arial Narrow", sans-serif;
 	--global-font-size: 20;
 	--global-font-line-height: 1.4;
 

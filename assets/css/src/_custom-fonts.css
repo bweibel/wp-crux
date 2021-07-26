@@ -1,0 +1,10 @@
+/**
+ * Custom Fonts
+ *
+ **/
+
+@font-face {
+  font-family: "Landry Gothic";
+  src: url("../fonts/src/landrygothic-webfont.woff");
+  src: url("../fonts/src/landrygothic-webfont.ttf");
+}
