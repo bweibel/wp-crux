@@ -214,12 +214,17 @@ select {
 
 .custom-logo-link {
 	display: inline-block;
-	margin: 0 auto 1em;
+	margin: 0 auto;
+}
+
+.custom-logo {
+	min-width: 200px;
+	width: 25vw;
 }
 
 .site-branding {
 	text-align: center;
-	padding: 60px 0 1.75em;
+	padding: 20px 1em 1.75em;
 }
 
 .site-title {
@@ -253,13 +258,14 @@ select {
 .nav--toggle-small .menu-toggle {
 	display: block;
 	margin: 1.2em auto;
-	padding: 0.6em 1.2em 0.5em;
-	font-family: var(--highlight-font-family);
-	font-stretch: condensed;
-	font-size: 80%;
-	text-transform: uppercase;
-	border: 2px solid var(--border-color-dark);
-	border-radius: 0;
+	/* padding: 0.6em 1.2em 0.5em; */
+	/* font-family: var(--highlight-font-family); */
+	/* font-stretch: condensed; */
+	/* font-size: 80%; */
+	/* text-transform: uppercase; */
+	/* border: 2px solid var(--border-color-dark); */
+	/* border-radius: 0; */
+	border: none;
 	background: transparent;
 }
 
@@ -383,7 +389,7 @@ select {
 .main-navigation {
 	display: block;
 	margin: 0 auto 2em;
-	padding: 60px 0 1em;
+	padding: 20px 0 1em;
 	max-width: var(--content-width);
 	font-family: var(--highlight-font-family);
 	font-stretch: condensed;

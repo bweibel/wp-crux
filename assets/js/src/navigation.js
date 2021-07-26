@@ -22,6 +22,7 @@ if ( 'loading' === document.readyState ) {
 function initNavigation() {
 	initNavToggleSubmenus();
 	initNavToggleSmall();
+	initStickyMasthead();
 }
 
 /**
@@ -162,6 +163,21 @@ function initEachNavToggleSmall( nav ) {
 		nav.classList.toggle( 'nav--toggled-on' );
 		e.target.setAttribute( 'aria-expanded', 'false' === e.target.getAttribute( 'aria-expanded' ) ? 'true' : 'false' );
 	}, false );
+}
+
+/**
+ * Initiate the script to process sticky header
+ */
+function initStickyMasthead() {
+	const header = document.getElementById( 'masthead' );
+	window.addEventListener( 'scroll', () => {
+		const screenPos = window.pageYOffset;
+		if ( screenPos > 0 ) {
+			header.classList.add( 'sticky' );
+		} else {
+			header.classList.remove( 'sticky' );
+		}
+	} );
 }
 
 /**

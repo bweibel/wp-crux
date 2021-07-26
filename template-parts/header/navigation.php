@@ -11,6 +11,8 @@ if ( ! wp_rig()->is_primary_nav_menu_active() ) {
 	return;
 }
 
+$theme = get_template_directory_uri();
+
 ?>
 
 <nav id="site-navigation" class="main-navigation nav--toggle-sub nav--toggle-small" aria-label="<?php esc_attr_e( 'Main menu', 'wp-rig' ); ?>"
@@ -46,7 +48,7 @@ if ( ! wp_rig()->is_primary_nav_menu_active() ) {
 		}
 		?>
 	>
-		<?php esc_html_e( 'Menu', 'wp-rig' ); ?>
+		<img src="<?php echo $theme; ?>/assets/images/crux_menu.svg" alt="Mobile Menu" width="50px">
 	</button>
 
 	<div class="primary-menu-container">
