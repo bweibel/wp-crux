@@ -202,6 +202,7 @@ select {
 	display: flex;
 	justify-content: space-between;
 	z-index: 10;
+	background: linear-gradient(#fff4da99, #ffffff00);
 }
 
 .header-image {
@@ -220,6 +221,7 @@ select {
 
 .custom-logo {
 	min-width: 200px;
+	max-width: 300px;
 	width: 25vw;
 }
 
@@ -580,8 +582,9 @@ select {
 .site-footer {
 	margin: 1em 0 0;
 	padding: 2em 0;
-	font-family: var(--highlight-font-family);
+	font-family: var(--global-font-family);
 	font-stretch: condensed;
+	font-size: var(--font-size-small);
 }
 
 .site-info {

@@ -23,7 +23,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-stretch: condensed;
+	/* font-stretch: condensed; */
 	clear: both;
 }
 
@@ -42,14 +42,13 @@ h6 {
 
 .entry-title-singular,
 .page-title {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	line-height: 1.4;
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
 
 .page .entry-title {
-	margin: auto;
 	width: 100%;
 	text-align: center;
 	color: var(--color-theme-primary);

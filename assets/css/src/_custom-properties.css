@@ -5,7 +5,7 @@
  * @link: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
  **/
 
- @import "_custom-fonts.css";
+@import "_custom-fonts.css";
 
 :root {
 	--content-width: 45rem;

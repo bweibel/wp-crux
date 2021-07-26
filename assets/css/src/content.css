@@ -112,9 +112,37 @@
 	position: relative;
 }
 
-.entry-header .entry-title {
+.entry-header .entry-title-container {
 	position: absolute;
+	width: 100%;
 	bottom: 0;
+	text-align: center;
+	margin: 0 auto;
+	padding: 3em 1em;
+}
+
+.entry-header .entry-title-container svg{
+	width: 2rem;
+}
+
+.entry-header .entry-title-container .arrow {
+	fill: var(--color-theme-primary);
+}
+
+.page.yellow .entry-header .entry-title-container .arrow {
+	fill: var(--color-theme-yellow);
+}
+
+.page.orange .entry-header .entry-title-container .arrow {
+	fill: var(--color-theme-orange);
+}
+
+.page.red .entry-header .entry-title-container .arrow {
+	fill: var(--color-theme-red);
+}
+
+.page.cream .entry-header .entry-title-container .arrow {
+	fill: var(--color-theme-cream);
 }
 
 .page .post-thumbnail img {
