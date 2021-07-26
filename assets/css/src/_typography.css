@@ -23,10 +23,22 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--highlight-font-family);
 	font-stretch: condensed;
 	clear: both;
 }
+
+h1,
+h2 {
+	font-family: var(--highlight-font-family);
+}
+
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--global-font-family);
+}
+
 
 .entry-title-singular,
 .page-title {
@@ -40,6 +52,23 @@ h6 {
 	margin: auto;
 	width: 100%;
 	text-align: center;
+	color: var(--color-theme-primary);
+}
+
+.page.yellow .entry-title {
+	color: var(--color-theme-yellow);
+}
+
+.page.orange .entry-title {
+	color: var(--color-theme-orange);
+}
+
+.page.red .entry-title {
+	color: var(--color-theme-red);
+}
+
+.page.cream .entry-title {
+	color: var(--color-theme-cream);
 }
 
 dfn,

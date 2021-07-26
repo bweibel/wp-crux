@@ -109,6 +109,12 @@
 	background-image: url(../images/tasting_room.jpg);
 	background-position: center;
 	background-size: cover;
+	position: relative;
+}
+
+.entry-header .entry-title {
+	position: absolute;
+	bottom: 0;
 }
 
 .page .post-thumbnail img {
