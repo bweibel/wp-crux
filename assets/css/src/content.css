@@ -111,6 +111,8 @@
 	background-size: cover;
 	position: relative;
 	overflow: hidden;
+	display: flex;
+	justify-content: center;
 }
 
 .entry-header .entry-title-container {
@@ -146,8 +148,16 @@
 	fill: var(--color-theme-cream);
 }
 
-.page .post-thumbnail img {
-	min-width: 100%;
+.page .entry-header .post-thumbnail {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+}
+
+.page .entry-header .post-thumbnail img {
+	min-width: 900px;
+	width: 100%;
+	align-self: center;
 }
 
 @media (--content-query) {
