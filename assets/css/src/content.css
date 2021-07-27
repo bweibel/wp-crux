@@ -103,13 +103,14 @@
 .page .entry-header {
 	min-width: 100%;
 	margin: 0;
-	min-height: 400px;
+	/* min-height: 400px; */
 	max-height: 60vh;
 	background-color: var(--color-theme-yellow);
 	background-image: url(../images/tasting_room.jpg);
 	background-position: center;
 	background-size: cover;
 	position: relative;
+	overflow: hidden;
 }
 
 .entry-header .entry-title-container {
@@ -121,7 +122,7 @@
 	padding: 3em 1em;
 }
 
-.entry-header .entry-title-container svg{
+.entry-header .entry-title-container svg {
 	width: 2rem;
 }
 
@@ -189,7 +190,6 @@
 .entry-footer {
 	clear: both;
 	padding: 1.5em 1.5rem 3em;
-	/* border-bottom: 1px solid var(--global-font-color); */
 }
 
 @media (--content-query) {
