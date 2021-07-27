@@ -28,7 +28,6 @@ if ( is_home() ) {
 			get_template_part( 'template-parts/content/entry', get_post_type() );
 		}
 
-		get_template_part( 'template-parts/content/pagination' );
 		?>
 	</main><!-- #primary -->
 <?php
