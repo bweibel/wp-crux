@@ -24,19 +24,19 @@
 	--font-size-larger: calc(48 / var(--global-font-size) * 1rem);
 
 	/* Colors */
-	--global-font-color: #333;
-	--border-color-dark: #333;
+	--global-font-color: var(--color-theme-black);
+	--border-color-dark: var(--color-theme-black);
 	--border-color-light: #ccc;
-	--color-link: #0073aa;
-	--color-link-visited: #333;
-	--color-link-active: #00a0d2;
-	--color-quote-border: #000;
+	--color-link: var(--color-theme-orange);
+	--color-link-visited: var(--color-theme-black);
+	--color-link-active: var(--color-theme-red);
+	--color-quote-border: var(--color-theme-black);
 	--color-quote-citation: #6c7781;
 
 	/* Custom editor colors */
 	--color-theme-primary: var(--color-theme-yellow);
 	--color-theme-secondary: var(--color-theme-orange);
-	--color-theme-cream:	#fff4da;
+	--color-theme-cream: #fff4da;
 	--color-theme-red: #fa4616;
 	--color-theme-yellow: #ffbf3f;
 	--color-theme-orange: #de7c00;
