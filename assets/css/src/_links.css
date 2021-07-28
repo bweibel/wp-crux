@@ -27,3 +27,61 @@ a:hover,
 a:active {
 	outline: 0;
 }
+
+.button ,
+.button:visited,
+.button:active{
+	display: inline-block;
+	background-image: url(../images/gold_button.svg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: center;
+	color: #333;
+	color: var(--global-font-color);
+	font-family: var(--highlight-font-family);
+	text-transform: uppercase;
+	padding: 2rem 6em;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 16px;
+	position: relative;
+	z-index: 1;
+	transform: translateY(0);
+	transition: transform .2s cubic-bezier(.22,.61,.36,1);
+	/* box-shadow: 0 10px 25px 0px rgba(0,0,0,.2); */
+}
+
+.button:hover {
+	color: #333;
+	transform: translateY(2px);
+	/* box-shadow: 0 8px 25px 0px rgba(0,0,0,.2) */
+}
+
+.button-orange,
+.button-orange:hover,
+.button-orange:visited,
+.button-orange:active {
+	background-image: url(../images/orange_button.svg);
+}
+
+.button-yellow,
+.button-yellow:hover,
+.button-yellow:visited,
+.button-yellow:active {
+	background-image: url(../images/yellow_button.svg);
+}
+
+.button-red,
+.button-red:hover,
+.button-red:visited,
+.button-red:active {
+	background-image: url(../images/red_button.svg);
+}
+
+.button-navy,
+.button-navy:hover,
+.button-navy:visited,
+.button-navy:active {
+	background-image: url(../images/navy_button.svg);
+	color: var(--color-theme-white);
+}
