@@ -25,6 +25,8 @@
 @import "_typography.css";
 @import "_elements.css";
 @import "_links.css";
+@import "_buttons.css";
+
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -116,7 +118,7 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
+	border: none;
 	border-color: var(--border-color-light) var(--border-color-light) #bbb;
 	border-radius: 3px;
 	background: #eee;
@@ -162,10 +164,10 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	color: #666;
-	border: 1px solid var(--border-color-light);
-	border-radius: 3px;
-	padding: 3px;
+	color: var(--global-font-color);
+	background: var(--color-theme-cream-dark);
+	border: none;
+	padding: .5em;
 }
 
 input[type="text"]:focus,
@@ -184,7 +186,7 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-	color: #111;
+	color: var(--global-font-color);
 }
 
 select {
@@ -203,6 +205,12 @@ select {
 	justify-content: space-between;
 	z-index: 10;
 	background: linear-gradient(#fff4da99, #ffffff00);
+}
+
+@media (--sidebar-query) {
+	.site-header {
+		justify-content: space-around;
+	}
 }
 
 .header-image {
@@ -386,7 +394,7 @@ select {
 	display: block;
 	margin: 0;
 	padding: 20px 0 1em;
-	max-width: var(--content-width);
+	/* max-width: var(--content-width); */
 	font-family: var(--highlight-font-family);
 	font-stretch: condensed;
 }
@@ -421,6 +429,10 @@ select {
 }
 
 @media (--wide-menu-query) {
+
+	.main-navigation .primary-menu-container {
+		padding: 34px 0;
+	}
 
 	.main-navigation ul li a {
 		padding: 0.4em 0.5em;
@@ -583,6 +595,42 @@ select {
 .site-info {
 	text-align: center;
 }
+
+/* Newsletter CTA */
+.newsletter {
+
+}
+
+.newsletter .cta-text{
+	font-size: 2em;
+	font-family: var(--highlight-font-family);
+	color: var(--color-theme-red);
+	display: block;
+}
+
+.site-footer .newsletter {
+	margin: auto;
+	max-width: 30em;
+}
+
+/*--------------------------------------------------------------
+# Social
+--------------------------------------------------------------*/
+
+.social {
+	display: flex;
+	justify-content: center;
+}
+
+.social img {
+	margin: 1em;
+	transition: transform .1s;
+}
+
+.social img:hover {
+	transform: scale(1.1) ;
+}
+
 
 /*--------------------------------------------------------------
 # Infinite scroll
