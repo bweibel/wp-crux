@@ -8,11 +8,11 @@
 @import "_custom-fonts.css";
 
 :root {
-	--content-width: 45rem;
+	--content-width: 60rem;
 	--dropdown-symbol-width: 0.7em;
 
 	/* Typography */
-	--global-font-family: "Crimson Text", serif;
+	--global-font-family: "Noto Serif", serif;
 	--highlight-font-family: "Landry Gothic", "Helvetica Neue", "Arial Narrow", sans-serif;
 	--global-font-size: 20;
 	--global-font-line-height: 1.4;
@@ -37,6 +37,7 @@
 	--color-theme-primary: var(--color-theme-yellow);
 	--color-theme-secondary: var(--color-theme-orange);
 	--color-theme-cream: #fff4da;
+	--color-theme-cream-dark: #bfb7a4;
 	--color-theme-red: #fa4616;
 	--color-theme-yellow: #ffbf3f;
 	--color-theme-orange: #de7c00;
