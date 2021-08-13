@@ -312,6 +312,27 @@ class Component implements Component_Interface, Templating_Component_Interface {
 					return 'front-page.php' === basename( $template );
 				},
 			),
+			'wp-rig-careers' => array(
+				'file' => 'careers.min.css',
+				'preload_callback' => function() {
+					global $template;
+					return 'page-careers.php' === basename( $template );
+				},
+			),
+			'wp-rig-beers' => array(
+				'file' => 'beers.min.css',
+				'preload_callback' => function() {
+					global $template;
+					return 'page-beers.php' === basename( $template );
+				},
+			),
+			'wp-rig-events' => array(
+				'file' => 'events.min.css',
+				'preload_callback' => function() {
+					global $template;
+					return 'page-events.php' === basename( $template );
+				},
+			),
 		);
 
 		/**

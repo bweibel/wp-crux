@@ -1,0 +1,70 @@
+/*--------------------------------------------------------------
+## Events Widget
+--------------------------------------------------------------*/
+
+.event-list {
+	list-style: none;
+}
+
+.event-list .event {
+	border-bottom: 2px solid var(--color-theme-black);
+	/* padding: 1rem; */
+	transition: background .5s;
+	margin-bottom: .4rem;
+	padding-bottom: .4rem;
+  position: relative;
+}
+
+.event-list .event header {
+	cursor: pointer;
+	padding: .8em;
+}
+
+.event-list .event header:hover {
+	background-color: var(--color-theme-cream-dark);
+}
+
+.event-list .event.open { 
+	color: var(--color-theme-cream);
+	background-color: var(--color-theme-black);
+}
+
+.event-list .event .details {
+	padding: 0 1em;
+	max-height: 0;
+	transition: max-height .5s;
+	overflow: hidden;
+}
+
+.event-list .event.open .details {
+	max-height: 100vh;
+}
+
+.event .date, .event .title, .event .seperator {
+	font-size: 1.2em;
+	font-weight: bold;
+	display: inline;
+}
+
+.event .title {
+	margin: 0;
+}
+
+.event header:after {
+  content: "+";
+  margin-left: 1em;
+  font-weight: 700;
+  position: absolute;
+  right: .5em;
+  top: .1em;
+  font-size: 2em;
+}
+
+.event.open header:after {
+  content: "-";
+}
+
+.event .time {
+	font-size: .8em;
+}
+

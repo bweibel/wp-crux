@@ -7,6 +7,8 @@
 
 namespace WP_Rig\WP_Rig;
 
+$theme = get_template_directory_uri();
+
 if ( is_404() ) {
 	?>
 	<header class="page-header">
@@ -26,14 +28,19 @@ if ( is_404() ) {
 } elseif ( is_home() && ! is_front_page() ) {
 	?>
 	<header class="page-header">
-		<h1 class="page-title">
-			<?php single_post_title(); ?>
-		</h1>
+		<section class="entry-title-container">
+			<?php
+			echo '<h1 class="page-title">Brew Blog</h1>';
+			echo '<img src="' . $theme . '/assets/images/yellow_down_arrow.png" alt="Down Arrow" class="down-arrow">';
+			// the_archive_description( '<div class="archive-description">', '</div>' );
+			?>
+		</section>
 	</header><!-- .page-header -->
 	<?php
 } elseif ( is_search() ) {
 	?>
 	<header class="page-header">
+	<section class="entry-title-container">
 		<h1 class="page-title">
 			<?php
 			printf(
@@ -43,15 +50,18 @@ if ( is_404() ) {
 			);
 			?>
 		</h1>
+	</section>
 	</header><!-- .page-header -->
 	<?php
 } elseif ( is_archive() ) {
 	?>
 	<header class="page-header">
-		<?php
-		the_archive_title( '<h1 class="page-title">', '</h1>' );
-		the_archive_description( '<div class="archive-description">', '</div>' );
-		?>
+		<section class="entry-title-container">
+			<?php
+			the_archive_title( '<h1 class="page-title">', '</h1>' );
+			the_archive_description( '<div class="archive-description">', '</div>' );
+			?>
+		</section>
 	</header><!-- .page-header -->
 	<?php
 }

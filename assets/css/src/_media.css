@@ -55,6 +55,20 @@ object {
 
 }
 
+@media (--content-query-wide) {
+
+	.wp-caption.alignright,
+	.wp-block-image.alignright {
+		margin-right: calc((100% - var(--content-width-wide)) / 2);
+	}
+
+	.wp-caption.alignleft,
+	.wp-block-image.alignleft {
+		margin-left: calc((100% - var(--content-width-wide)) / 2);
+	}
+
+}
+
 /*--------------------------------------------------------------
 ## Galleries (Legacy)
 --------------------------------------------------------------*/

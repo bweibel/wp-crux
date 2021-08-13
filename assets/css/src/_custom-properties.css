@@ -9,12 +9,13 @@
 
 :root {
 	--content-width: 60rem;
+	--content-width-wide: 100rem;
 	--dropdown-symbol-width: 0.7em;
 
 	/* Typography */
 	--global-font-family: "Noto Serif", serif;
 	--highlight-font-family: "Landry Gothic", "Helvetica Neue", "Arial Narrow", sans-serif;
-	--global-font-size: 20;
+	--global-font-size: 18;
 	--global-font-line-height: 1.4;
 
 	/* Custom editor font sizes */
@@ -33,6 +34,10 @@
 	--color-quote-border: var(--color-theme-black);
 	--color-quote-citation: #6c7781;
 
+	--color-cream-transparent: #fff4dadd;
+	--color-black-transparent: #101820dd;
+
+
 	/* Custom editor colors */
 	--color-theme-primary: var(--color-theme-yellow);
 	--color-theme-secondary: var(--color-theme-orange);
@@ -44,6 +49,6 @@
 	--color-theme-black: #101820;
 	--color-theme-grey: #95a5a6;
 	--color-theme-white: #ecf0f1;
-	--color-custom-daylight: #97c0b7;
-	--color-custom-sun: #eee9d1;
+
+
 }

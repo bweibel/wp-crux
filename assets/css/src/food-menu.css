@@ -1,0 +1,79 @@
+/**
+ * Custom styles for the careers template.
+ */
+
+ @import "_media.css";
+
+
+ .careers-list {
+   max-width: var(--content-width);
+   margin: auto;
+   padding: 0 1em;
+ }
+
+.career {
+	border-bottom: 2px solid var(--color-theme-black);
+	/* padding: 1rem; */
+	transition: background .5s;
+	margin-bottom: .4rem;
+	padding-bottom: .4rem;
+}
+
+.career .career-header {
+	cursor: pointer;
+	padding: .8em;
+  position: relative;
+  text-align: center;
+}
+
+@media (--content-query) {
+  .career .career-header {
+    text-align: left;
+  }
+}
+
+.career-header::after {
+  content: "+";
+  margin-left: 1em;
+  font-weight: 700;
+  position: absolute;
+  right: 1em;
+  top: .1em;
+  font-size: 2em;
+}
+
+
+.career.open .career-header::after {
+  content: "-";
+}
+
+.career-title {
+  margin: 0;
+}
+
+.career-type {
+  font-size: .8em;
+}
+
+.career-header:hover {
+	background-color: var(--color-theme-cream-dark);
+}
+
+.career.open { 
+	color: var(--color-theme-cream);
+	background-color: var(--color-theme-black);
+}
+
+.career .entry-content {
+	margin: 0;
+  padding: 0 1em;
+
+	max-height: 0;
+	transition: max-height .5s, padding .5s;
+	overflow: hidden;
+}
+
+.career.open .entry-content {
+  padding: 1em;
+	max-height: 100vh;
+}

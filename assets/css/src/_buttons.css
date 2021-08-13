@@ -4,59 +4,113 @@
 # Links
 --------------------------------------------------------------*/
 
-.button ,
+.button,
 .button:visited,
-.button:active{
+.button:active,
+.woocommerce a.button,
+.woocommerce input.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
 	display: inline-block;
-	background-image: url(../images/gold_button.svg);
+	background: none;
+	background-image: url(../images/gold_button.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	background-position: center;
 	color: var(--color-theme-cream);
+	cursor: pointer;
 	font-family: var(--highlight-font-family);
 	text-transform: uppercase;
-	padding: 1em 3em;
+	padding: .8em 2em;
   margin: .5em;
 	text-decoration: none;
+	text-align: center;
 	position: relative;
 	z-index: 1;
 	transform: translateY(0);
-	transition: transform .2s cubic-bezier(.22,.61,.36,1);
+	transition: transform .2s ;
 }
 
-.button:hover {
-	opacity: .6;
+.button:hover,
+.button-navy:active,
+.woocommerce .newsletter a.button:hover,
+.woocommerce .newsletter input.button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	background-color: transparent;
+	opacity: .8;
+	color: var(--color-theme-cream);
+	transform: translateY(2px);
 }
 
 .button:active {
 	transform: translateY(2px);
 }
 
+.entry-content .button{
+	min-width: 10em;
+}
+
+.button-cream,
+.button-cream:hover,
+.button-cream:visited,
+.button-cream:active,
+.woocommerce a.button.button-cream,
+.woocommerce input.button.button-cream,
+input[type="button"].button-cream,
+input[type="reset"].button-cream,
+input[type="submit"].button-cream {
+	background-image: url(../images/cream_button.png);
+	color: var(--color-theme-black);
+}
+
 .button-orange,
 .button-orange:hover,
 .button-orange:visited,
-.button-orange:active {
-	background-image: url(../images/orange_button.svg);
+.button-orange:active,
+.woocommerce a.button.button-orange,
+.woocommerce input.button.button-orange,
+input[type="button"].button-orange,
+input[type="reset"].button-orange,
+input[type="submit"].button-orange { 
+	background-image: url(../images/orange_button.png);
 }
 
 .button-yellow,
 .button-yellow:hover,
 .button-yellow:visited,
-.button-yellow:active {
-	background-image: url(../images/yellow_button.svg);
+.button-yellow:active,
+.woocommerce a.button.button-yellow,
+.woocommerce input.button.button-yellow,
+input[type="button"].button-yellow,
+input[type="reset"].button-yellow,
+input[type="submit"].button-yellow { 
+	background-image: url(../images/yellow_button.png);
 }
 
 .button-red,
 .button-red:hover,
 .button-red:visited,
-.button-red:active {
-	background-image: url(../images/red_button.svg);
+.button-red:active,
+.woocommerce a.button.button-red,
+.woocommerce input.button.button-red,
+input[type="button"].button-red,
+input[type="reset"].button-red,
+input[type="submit"].button-red {
+	background-image: url(../images/red_button.png);
 }
 
 .button-navy,
 .button-navy:hover,
 .button-navy:visited,
-.button-navy:active {
-	background-image: url(../images/navy_button.svg);
-	color: var(--color-theme-white);
+.button-navy:active,
+.woocommerce a.button.button-navy,
+.woocommerce input.button.button-navy,
+input[type="button"].button-navy,
+input[type="reset"].button-navy,
+input[type="submit"].button-navy {
+	background-image: url(../images/navy_button.png);
 }

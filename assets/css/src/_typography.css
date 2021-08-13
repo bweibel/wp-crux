@@ -3,6 +3,7 @@
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
+
 /* stylelint-disable */
 body,
 button,
@@ -15,6 +16,7 @@ textarea {
 	font-size: var(--font-size-regular);
 	line-height: var(--global-font-line-height);
 }
+
 /* stylelint-enable */
 
 h1,
@@ -24,6 +26,18 @@ h4,
 h5,
 h6 {
 	clear: both;
+	text-align: center;
+}
+
+@media (--content-query) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		text-align: left;
+	}
 }
 
 h1,
@@ -41,31 +55,42 @@ h6 {
 
 .entry-title-singular,
 .page-title {
-	font-size: 2rem;
+	font-size: 1.6em;
 	line-height: 1.4;
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
 
-.page .entry-title {
+.entry-title-singular {
+	margin-bottom: 0;
+}
+
+.page .entry-title,
+.post .entry-title,
+.page-title {
 	width: 100%;
 	text-align: center;
 	color: var(--color-theme-primary);
+	text-shadow: 0 0 20px rgba(151, 111, 111, 0.8);
 }
 
-.page.yellow .entry-title {
+.yellow,
+.entry-header.yellow .entry-title {
 	color: var(--color-theme-yellow);
 }
 
-.page.orange .entry-title {
+.orange,
+.entry-header.orange .entry-title {
 	color: var(--color-theme-orange);
 }
 
-.page.red .entry-title {
+.red,
+.entry-header.red .entry-title {
 	color: var(--color-theme-red);
 }
 
-.page.cream .entry-title {
+.cream,
+.entry-header.cream .entry-title {
 	color: var(--color-theme-cream);
 }
 

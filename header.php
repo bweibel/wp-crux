@@ -11,6 +11,8 @@
 
 namespace WP_Rig\WP_Rig;
 
+
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
