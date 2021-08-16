@@ -2,201 +2,219 @@
  * Custom styles for the beers template.
  */
 
- @import "_media.css";
+@import "_media.css";
 
+.beer-container {
+	max-width: var(--content-width);
+	margin: auto;
+	padding: 0 1em;
+}
 
+.beer-list {
+	padding: 0;
+}
 
- .beer-container {
-   max-width: var(--content-width);
-   margin: auto;
-   padding: 0 1em;
- }
+.beer-list.hidden {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s;
+}
 
-
-
- .beer-list {
-   padding: 0;
- }
+.beer-list.hidden.open {
+	max-height: 1000vh;
+}
 
 .beer {
 	border-bottom: 2px solid var(--color-theme-black);
 	/* padding: 1rem; */
-	transition: background .5s;
-	margin-bottom: .4rem;
-	padding-bottom: .4rem;
+	transition: background 0.5s;
+	margin-bottom: 0.4rem;
+	padding-bottom: 0.4rem;
 }
 
 .beer.hidden {
-  display: none;
+	display: none;
 }
 
 .beer .beer-header {
 	cursor: pointer;
-	padding: .8em;
-  position: relative;
-  text-align: center;
+	padding: 0.8em 1em;
+	position: relative;
+	text-align: center;
 }
 
 .beer-header::after {
-  content: "+";
-  margin-left: 1em;
-  font-weight: 700;
-  position: absolute;
-  right: .5em;
-  top: .1em;
-  font-size: 2em;
+	content: "+";
+	margin-left: 1em;
+	font-weight: 700;
+	position: absolute;
+	right: 0.5em;
+	top: 0.1em;
+	font-size: 2em;
 }
 
-
 .beer.open .beer-header::after {
-  content: "-";
+	content: "-";
 }
 
 .beer-title {
-  margin: 0;
-}
-
-.beer-type {
-  font-size: .8em;
+	margin: 0;
 }
 
 .beer-header:hover {
 	background-color: var(--color-theme-yellow);
 }
 
-.beer.open { 
+.beer.open {
 	color: var(--color-theme-cream);
 	background-color: var(--color-theme-black);
 }
 
 .beer .entry-content {
 	margin: 0;
-  padding: 0 1em;
-
+	padding: 0 1em;
 	max-height: 0;
-	transition: max-height .5s, padding .5s;
+	transition: max-height 0.5s, padding 0.5s;
 	overflow: hidden;
-  text-align: center;
+	text-align: center;
 }
 
 @media (--content-query) {
-  .beer .beer-header,
-  .beer .entry-content {
-    text-align: left;
-  }
-}
 
+	.beer .beer-header,
+	.beer .entry-content {
+		text-align: left;
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+
+}
 
 .beer.open .entry-content {
 	max-height: 200vh;
 }
 
-.beer .post-thumbnail {
-  padding: 2em;
+.beer img {
+	padding: 2em 3em;
+	margin: 1rem auto;
+	max-width: 100%;
 }
 
-.beer-info {
-  font-size: .8em;
+@media (--content-query) {
+	.beer img {
+		padding: 2em;
+	}
 }
 
-
+.untappd {
+	display: block;
+	margin: 2rem 0;
+}
 
 .untappd a {
-  color: var(--color-theme-cream);
-  text-decoration: none;
-  font-family: var(--highlight-font-family);
-  font-size: .8em;
+	color: var(--color-theme-cream);
+	text-decoration: none;
+	font-family: var(--highlight-font-family);
+	font-size: 0.8em;
 }
 
 .untappd a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
+}
+
+.untappd a::before {
+	content: "";
+	width: 1.5em;
+	height: 1.5em;
+	display: inline-block;
+	background: url(../images/untappd_light.png);
+	background-size: contain;
+	margin-right: 0.5em;
+	margin-bottom: -0.5rem;
+	padding: 1em;
 }
 
 .filter-controls {
-  background-color: var(--color-theme-cream-dark);
-  max-width: 100%;
-  margin: 1rem 0;
-
+	background-color: var(--color-theme-cream-dark);
+	max-width: 100%;
+	margin: 1rem 0;
 }
 
-
 .filter-header {
-  padding: .5em;
-  text-align: center;
-  position: relative;
-  cursor: pointer;
-  color: var(--color-theme-cream);
+	padding: 0.5em;
+	text-align: center;
+	position: relative;
+	cursor: pointer;
+	color: var(--color-theme-cream);
 }
 
 .filter-header:hover {
-  background-color: var(--color-theme-yellow);
+	background-color: var(--color-theme-yellow);
 }
 
 .filter-header h3 {
-  margin: 0;
+	margin: 0;
 }
 
 .filter-controls .filter-header::after {
-  content: "+";
-  margin-left: 1em;
-  font-weight: 700;
-  position: absolute;
-  right: 1em;
-  top: .2em;
-  font-size: 1.4em;
+	content: "+";
+	margin-left: 1em;
+	font-weight: 700;
+	position: absolute;
+	right: 1em;
+	top: 0.2em;
+	font-size: 1.4em;
 }
 
 .filter-controls .open .filter-header::after {
-  content: "-";
+	content: "-";
 }
 
 .filter-controls .filter-buttons {
-  list-style: none;
-  padding: none;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .5s, padding .5s;
-  text-align: center;
-  
+	list-style: none;
+	padding: none;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s, padding 0.5s;
+	text-align: center;
 }
 
-.filter-controls.open .filter-buttons  {
-  max-height: 100vh;
+.filter-controls.open .filter-buttons {
+	max-height: 100vh;
 }
 
 .filter-controls .filter-button,
-.filter-controls .filter-button:visited{
-  font-family: var(--highlight-font-family);
-  text-decoration: none;
-  color: var(--global-font-color);
-  padding: 1em;
-  display: inline-block;
-  cursor: pointer;
+.filter-controls .filter-button:visited {
+	font-family: var(--highlight-font-family);
+	text-decoration: none;
+	color: var(--global-font-color);
+	padding: 1em;
+	display: inline-block;
+	cursor: pointer;
 }
 
 .filter-controls .filter-button:hover {
-  color: var(--color-theme-red)
+	color: var(--color-theme-red);
 }
 
 .filter-controls .filter-button.active {
-  color: var(--color-theme-orange)
+	color: var(--color-theme-orange);
 }
 
 /* Slider */
 .metaslider.featured-beers {
-  margin: 2rem auto 10rem!important;
-  padding: 1rem;
+	margin: 2rem auto 10rem !important;
+	padding: 1rem;
 }
 .metaslider.featured-beers .caption {
-  color: var(--global-font-color);
-  font-size: 26px;
-  font-weight: bold;
-  text-align: center;
-
+	color: var(--global-font-color);
+	font-size: 26px;
+	font-weight: bold;
+	text-align: center;
 }
 
 .metaslider.featured-beers .caption-wrap {
-  background: none;
-  margin: 1rem auto;
-  bottom: -10rem;
+	background: none;
+	margin: 1rem auto;
+	bottom: -10rem;
 }

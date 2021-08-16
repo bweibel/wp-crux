@@ -9,6 +9,7 @@ namespace WP_Rig\WP_Rig;
 
 $abv = get_post_meta( $id, 'wpcf-beer-abv', true );
 $ibu = get_post_meta( $id, 'wpcf-beer-ibu', true );
+$untappd = get_post_meta( $id, 'wpcf-beer-untappd-id', true );
 
 $info = $abv . ' | ' . $ibu . ' IBU';
 
@@ -16,9 +17,9 @@ $info = $abv . ' | ' . $ibu . ' IBU';
 
 <div class="entry-content">
   <span class="beer-info"><?php echo $info; ?></span>
-  <p class="untappd"><a href="#">Untappd Check-in</a></p>
+  <span class="untappd"><a href="https://untappd.com/beer/<?php echo $untappd; ?>" target="_blank">Untappd Check-in</a></span>
 	<?php
-  get_template_part( 'template-parts/content/entry_thumbnail', get_post_type() );
+	get_template_part( 'template-parts/content/entry_thumbnail', get_post_type() );
 	the_content(
 		sprintf(
 			wp_kses(

@@ -16,7 +16,7 @@ namespace WP_Rig\WP_Rig;
 
 	// get_template_part( 'template-parts/content/entry_title', get_post_type() );
 
-  the_title( '<h3 class="beer-title">', '</h3>' );	
+	the_title( '<h3 class="beer-title">', '</h3>' );
 	echo '<span class="beer-type">' . $style . '</span>';
 	?>
 </header><!-- .entry-header -->
