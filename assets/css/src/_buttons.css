@@ -23,8 +23,9 @@ input[type="submit"] {
 	cursor: pointer;
 	font-family: var(--highlight-font-family);
 	text-transform: uppercase;
-	padding: .8em 2em;
-  margin: .5em;
+	padding: 0.8em 2em;
+	margin: 0.5em;
+	line-height: 1.4;
 	text-decoration: none;
 	text-align: center;
 	position: relative;
@@ -75,7 +76,7 @@ input[type="submit"].button-cream {
 .woocommerce input.button.button-orange,
 input[type="button"].button-orange,
 input[type="reset"].button-orange,
-input[type="submit"].button-orange { 
+input[type="submit"].button-orange {
 	background-image: url(../images/orange_button.png);
 }
 
@@ -87,7 +88,7 @@ input[type="submit"].button-orange {
 .woocommerce input.button.button-yellow,
 input[type="button"].button-yellow,
 input[type="reset"].button-yellow,
-input[type="submit"].button-yellow { 
+input[type="submit"].button-yellow {
 	background-image: url(../images/yellow_button.png);
 }
 
