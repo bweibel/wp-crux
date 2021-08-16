@@ -36,7 +36,7 @@
 .entry-footer {
 	/* font-family: var(--highlight-font-family); */
 	/* font-stretch: condensed;  */
-	font-size: 80%; 
+	font-size: 80%;
 }
 
 .entry-meta {
@@ -102,17 +102,17 @@
 	max-width: var(--content-width);
 }
 
-.page .entry-header, 
+.page .entry-header,
 .page .page-header,
 .page-header,
-.post .entry-header, 
+.post .entry-header,
 .post .page-header
 {
 	min-width: 100%;
 	margin: 0;
 	min-height: 500px;
 	max-height: 60vh;
-	background-color: var(--color-theme-yellow);
+	background-color: var(--color-theme-black);
 	background-position: center;
 	background-size: cover;
 	position: relative;
@@ -227,7 +227,7 @@
 ## Layouts
 --------------------------------------------------------------*/
 .flex-container {
-	
+
 }
 
 @media (--content-query) {
@@ -462,7 +462,7 @@
 }
 
 .cta-box.kegs {
-	background-image: url(../images/Crux_Events.jpg);
+	background-image: url(../images/kegs-to-go_header.jpg);
 }
 
 .cta-box.blog {
@@ -491,8 +491,13 @@
 	padding: 1em 0;
 }
 
-.blog .post-thumbnail img {
+.blog .site-main .entry-header {
+	min-height: 15rem;
+}
+
+.blog .site-main .entry-header .post-thumbnail img {
 	width: 100%;
+	min-width: 150%;
 }
 /*--------------------------------------------------------------
 # Search
@@ -510,4 +515,3 @@
 .phone {
 	text-decoration: none;
 }
-

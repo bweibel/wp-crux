@@ -24,7 +24,7 @@
 	background-color: var(--color-theme-cream-dark);
 }
 
-.event-list .event.open { 
+.event-list .event.open {
 	color: var(--color-theme-cream);
 	background-color: var(--color-theme-black);
 }
@@ -67,4 +67,3 @@
 .event .time {
 	font-size: .8em;
 }
-

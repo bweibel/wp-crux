@@ -23,36 +23,36 @@ $theme = get_template_directory_uri();
 
 			get_template_part( 'template-parts/content/page_header' );
 
-      echo '<h2 style="text-align: center">Featured Beer(s)</h2>';
-      echo '[]';
-      echo 'error'
+			echo '<h2 style="text-align: center">Featured Beer(s)</h2>';
+			echo '[]';
+			echo 'error'
 
 			while ( have_posts() ) {
 				the_post();
 
 				// get_template_part( 'template-parts/content/entry', get_post_type() );
-        ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry career' ); ?>>
-          <?php
-          get_template_part( 'template-parts/content/entry_header-careers', get_post_type() );
+				?>
+		<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry career' ); ?>>
+				<?php
+				get_template_part( 'template-parts/content/entry_header-careers', get_post_type() );
 
-          if ( is_search() ) {
-            get_template_part( 'template-parts/content/entry_summary', get_post_type() );
-          } else {
-            get_template_part( 'template-parts/content/entry_content', get_post_type() );
-          }
+				if ( is_search() ) {
+					get_template_part( 'template-parts/content/entry_summary', get_post_type() );
+				} else {
+					get_template_part( 'template-parts/content/entry_content', get_post_type() );
+				}
 
-          // get_template_part( 'template-parts/content/entry_footer', get_post_type() );
-          ?>
-        </article><!-- #post-<?php the_ID(); ?> -->
-        <?php
+				// get_template_part( 'template-parts/content/entry_footer', get_post_type() );
+				?>
+		</article><!-- #post-<?php the_ID(); ?> -->
+				<?php
 			}
 
 			get_template_part( 'template-parts/content/pagination' );
 		} else {
 			get_template_part( 'template-parts/content/error' );
 		}
-    echo '<img src="' . $theme . '/assets/images/Crux_Shop.jpg" alt="Crux Employee" class="alignwide aligncenter">';
+		echo '<img src="' . $theme . '/assets/images/Crux_Shop.jpg" alt="Crux Employee" class="alignwide aligncenter">';
 
 		?>
 	</main><!-- #primary -->

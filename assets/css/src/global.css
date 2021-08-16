@@ -877,12 +877,12 @@ woocommerce ul.products li.product,
 		margin: 2rem auto;
 		text-align: center;
 	}
-	
+
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-    background: var(--color-theme-cream);
-    border-bottom-color: var(--color-theme-cream);
+	background: var(--color-theme-cream);
+	border-bottom-color: var(--color-theme-cream);
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li {

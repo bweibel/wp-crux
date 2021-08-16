@@ -15,5 +15,5 @@ namespace WP_Rig\WP_Rig;
 
 <div class="site-info">
 
-	<span>© <?php echo date("Y"); ?> Crux Fermentation Project. All rights reserved</span>
+	<span>© <?php echo date( 'Y' ); ?> Crux Fermentation Project. All rights reserved</span>
 </div><!-- .site-info -->
