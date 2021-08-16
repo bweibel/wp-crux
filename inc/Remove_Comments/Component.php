@@ -15,10 +15,10 @@ use function add_action;
  */
 
 class Component implements Component_Interface {
-	
+
 	/**
 	 * Gets the unique identifier for the theme component.-white
-	 * 
+	 *
 	 * @return string Component slug.
 	 */
 	public function get_slug() : string {
@@ -38,7 +38,7 @@ class Component implements Component_Interface {
 	 * Removes comments option from admin menu
 	 */
 	public function remove_admin_menus() {
-		remove_menu_page('edit-comments.php');
+		remove_menu_page( 'edit-comments.php' );
 	}
 
 	/**
@@ -54,7 +54,7 @@ class Component implements Component_Interface {
 	 */
 	public function remove_from_admin_bar() {
 		global $wp_admin_bar;
-		$wp_admin_bar->remove_menu('comments');
+		$wp_admin_bar->remove_menu( 'comments' );
 	}
 
 }
