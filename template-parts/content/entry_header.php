@@ -19,6 +19,6 @@ namespace WP_Rig\WP_Rig;
 	}
 
 
-	
+
 	?>
 </header><!-- .entry-header -->

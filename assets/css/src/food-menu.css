@@ -28,7 +28,7 @@
 
 @media (--content-query) {
   .career .career-header {
-    text-align: left;
+	text-align: left;
   }
 }
 
@@ -59,7 +59,7 @@
 	background-color: var(--color-theme-cream-dark);
 }
 
-.career.open { 
+.career.open {
 	color: var(--color-theme-cream);
 	background-color: var(--color-theme-black);
 }

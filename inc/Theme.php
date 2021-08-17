@@ -151,7 +151,7 @@ class Theme {
 			new Post_Thumbnails\Component(),
 			new Customizer\Component(),
 			new Styles\Component(),
-			new Remove_Comments\Component()
+			new Remove_Comments\Component(),
 		);
 
 		if ( defined( 'JETPACK__VERSION' ) ) {

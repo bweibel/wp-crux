@@ -32,7 +32,7 @@ wp_rig()->print_styles( 'wp-rig-content', 'wp-rig-front-page' );
 			<?php
 				get_template_part( 'template-parts/content/entry_thumbnail', get_post_type() );
 
-				?>
+			?>
 				<section class="entry-title-container">
 					<div class="content">
 						<a href="/tasting-room/" class="button button-yellow">Visit Our<br> Tasting Room</a>

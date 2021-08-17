@@ -18,12 +18,25 @@ get_header();
 
 wp_rig()->print_styles( 'wp-rig-content' );
 
-?>
-	<main id="primary" class="site-main">
-		<?php
-	if ( have_posts() ) {
+$theme = get_template_directory_uri();
 
-			get_template_part( 'template-parts/content/page_header' );
+
+?>
+
+	<main id="primary" class="site-main page">
+		<header class="entry-header yellow">
+			<div class="post-thumbnail">
+				<img src="<?php echo $theme . '/assets/images/Crux-Blog-header.jpg'?>" class="skip-lazy wp-post-image" alt="Beer Blog" loading="lazy" sizes="100vw" width="1920" height="1000">
+			</div><!-- .post-thumbnail -->
+			<section class="entry-title-container">
+				<h1 class="entry-title entry-title-singular">Beer Blog</h1>
+				<img src="<?php echo $theme . '/assets/images/yellow_down_arrow.png' ?>" alt="Down Arrow" class="down-arrow">
+			</section>
+		</header>
+		<?php
+		if ( have_posts() ) {
+
+			// get_template_part( 'template-parts/content/page_header' );
 
 			while ( have_posts() ) {
 				the_post();

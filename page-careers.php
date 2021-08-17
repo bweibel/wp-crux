@@ -16,11 +16,11 @@ use WP_Query;
 
 // $order = get_field('order');
 
-$args = array( 
-  'post_type' => 'crux_careers',
-  'orderby' => 'date'
+$args = array(
+	'post_type' => 'crux_careers',
+	'orderby' => 'date',
 );
-$career_query = new WP_Query( $args ); 
+$career_query = new WP_Query( $args );
 
 get_header();
 
@@ -39,13 +39,15 @@ wp_rig()->print_styles( 'wp-rig-content' );
 		?>
 
 		<div id="careers-list" class="careers-list">
-    <?php if ( $career_query->have_posts() ) : ?>
-      <!-- the loop -->
-      <?php while ( $career_query->have_posts() ) : $career_query->the_post(); 
-			 			get_template_part( 'template-parts/careers/career' );  
-						endwhile; 
-			?>
-      <!-- end of the loop -->
+	<?php if ( $career_query->have_posts() ) : ?>
+	  <!-- the loop -->
+		<?php
+		while ( $career_query->have_posts() ) :
+			$career_query->the_post();
+						get_template_part( 'template-parts/careers/career' );
+						endwhile;
+		?>
+	  <!-- end of the loop -->
 
 				<?php wp_reset_postdata(); ?>
 			<?php endif; ?>
@@ -56,12 +58,12 @@ wp_rig()->print_styles( 'wp-rig-content' );
 	</main><!-- #primary -->
 	<script>
 		if ( 'loading' === document.readyState ) {
-        // The DOM has not yet been loaded.
-        document.addEventListener( 'DOMContentLoaded', initCareers );
-      } else {
-        // The DOM has already been loaded.
-        initCareers();
-      }
+		// The DOM has not yet been loaded.
+		document.addEventListener( 'DOMContentLoaded', initCareers );
+	  } else {
+		// The DOM has already been loaded.
+		initCareers();
+	  }
 
 			function initCareers() {
 				const listEl = document.getElementById('careers-list');

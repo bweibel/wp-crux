@@ -15,7 +15,7 @@ namespace WP_Rig\WP_Rig;
 		$type = get_post_meta( $id, 'wpcf-job-type', true );
 	// get_template_part( 'template-parts/content/entry_title', get_post_type() );
 
-  the_title( '<h3 class="career-title">', '</h3>' );	
+	the_title( '<h3 class="career-title">', '</h3>' );
 	echo '<span class="career-type">' . $type . '</span>';
 	?>
 </header><!-- .entry-header -->
