@@ -469,6 +469,9 @@
 	background-image: url(../images/Crux-Blog-header.jpg);
 }
 
+.cta-box.food-carts {
+	background-image: url(../images/pizza-cart_header.jpg);
+}
 
 
 .collapse-box{
@@ -491,13 +494,15 @@
 	padding: 1em 0;
 }
 
-.blog .site-main .entry-header {
+.blog .site-main .entry .entry-header {
 	min-height: 15rem;
+	max-height: 400px;
+	padding: 0;
 }
 
-.blog .site-main .entry-header .post-thumbnail img {
+.blog .site-main .entry .entry-header .post-thumbnail img {
 	width: 100%;
-	min-width: 150%;
+	min-width: 800px;
 }
 /*--------------------------------------------------------------
 # Search

@@ -41,6 +41,7 @@
 
 .home-grid .home-box h2 {
 	color: var(--color-theme-yellow);
+	text-align: center;
 }
 
 .home-box.our-story,
