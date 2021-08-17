@@ -1,0 +1,111 @@
+/*--------------------------------------------------------------
+## Events Widget
+--------------------------------------------------------------*/
+.beer-container {
+	max-width: var(--content-width);
+	margin: auto;
+	padding: 0 1em;
+}
+
+.tap-list {
+	list-style: none;
+	padding: 0;
+}
+
+.tap-list .beer {
+	border-bottom: 2px solid var(--color-theme-black);
+	transition: background .5s;
+	margin-bottom: .4rem;
+	padding-bottom: .4rem;
+	position: relative;
+}
+
+.beer .beer-header {
+	cursor: pointer;
+	padding: 0.8em 1em;
+	position: relative;
+	text-align: center;
+}
+
+.beer header:after {
+	content: "+";
+	margin-left: 1em;
+	font-weight: 700;
+	position: absolute;
+	right: .5em;
+	top: .1em;
+	font-size: 2em;
+  }
+
+.beer.open header:after {
+content: "-";
+}
+
+
+.beer .content {
+	padding: 0 1em;
+	max-height: 0;
+	transition: max-height 0.5s;
+	overflow: hidden;
+	text-align: center;
+}
+
+@media (--content-query) {
+
+	.beer .beer-header,
+	.beer .content {
+		text-align: left;
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+
+}
+
+.tap-list .beer header:hover {
+	background-color: var(--color-theme-orange);
+	color: var(--color-theme-cream);
+}
+
+.tap-list .beer.open {
+	color: var(--color-theme-cream);
+	background-color: var(--color-theme-black);
+}
+
+
+.tap-list .beer.open .content {
+	margin-bottom: 2rem;
+	max-height: 100vh;
+}
+
+
+.beer .title {
+	margin: 0;
+}
+
+.untappd {
+	display: block;
+	margin: 2rem 0;
+}
+
+.untappd a {
+	color: var(--color-theme-cream);
+	text-decoration: none;
+	font-family: var(--highlight-font-family);
+	font-size: 0.8em;
+}
+
+.untappd a:hover {
+	text-decoration: underline;
+}
+
+.untappd a::before {
+	content: "";
+	width: 1.5em;
+	height: 1.5em;
+	display: inline-block;
+	background: url(../images/untappd_light.png);
+	background-size: contain;
+	margin-right: 0.5em;
+	margin-bottom: -0.5rem;
+	padding: 1em;
+}

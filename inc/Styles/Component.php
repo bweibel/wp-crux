@@ -333,6 +333,20 @@ class Component implements Component_Interface, Templating_Component_Interface {
 					return 'page-events.php' === basename( $template );
 				},
 			),
+			'wp-rig-taplist' => array(
+				'file' => 'taplist.min.css',
+				'preload_callback' => function() {
+					global $template;
+					return 'page-taplist.php' === basename( $template );
+				},
+			),
+			'wp-rig-food-cart' => array(
+				'file' => 'food-cart.min.css',
+				'preload_callback' => function() {
+					global $template;
+					return 'page-food-carts.php' === basename( $template );
+				},
+			),
 		);
 
 		/**
