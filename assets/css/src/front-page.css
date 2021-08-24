@@ -2,6 +2,19 @@
  * Custom styles for the front-page.php template.
  */
 
+.cta-grid {
+	max-width: var(--content-width-wide);
+}
+
+.cta-box {
+	min-height: 500px;
+	text-align: center;
+}
+
+.cta-box h2 {
+	color: var(--color-theme-yellow)
+}
+
 .home-grid {
 	max-width: var(--content-width-wide);
 	margin: auto;
@@ -16,7 +29,8 @@
 	.home-box.our-story,
 	.home-box.tasting-room,
 	.home-box.beers,
-	.home-box.shop {
+	.home-box.shop,
+	.cta-box {
 		grid-column-start: span 2;
 	}
 }
