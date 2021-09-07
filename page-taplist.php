@@ -127,9 +127,12 @@ wp_rig()->print_styles('wp-rig-content', 'wp-rig-taplist' );
 					let beers = response;
 					console.log(beers);
 					beers.forEach( beer => {
-
-						append(el, formatBeer(beer.onTap.beer) );
-						console.log(beer.onTap.beer.name);
+						if ( beer.onTap !== null ){
+							append(el, formatBeer(beer.onTap.beer) );
+							console.log(beer.onTap.beer.name);
+						} else {
+							console.log("Empty Beer, skipping.");
+						}
 					})
 				})
 				// Error
