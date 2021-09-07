@@ -30,7 +30,7 @@ $theme = get_template_directory_uri();
 			</div><!-- .post-thumbnail -->
 			<section class="entry-title-container">
 				<h1 class="entry-title entry-title-singular">Beer Blog</h1>
-				<img src="<?php echo $theme . '/assets/images/yellow_down_arrow.png' ?>" alt="Down Arrow" class="down-arrow">
+				<img src="<?php echo $theme . '/assets/images/yellow_down_arrow.png'; ?>" alt="Down Arrow" class="down-arrow">
 			</section>
 		</header>
 		<?php

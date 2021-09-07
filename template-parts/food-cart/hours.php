@@ -25,13 +25,13 @@ get_post_meta( $id, 'wpcf-job-type', true );
 
 ?>
 
-<ul class="hours">
+<table class="hours">
+	<tbody>
 	<?php
 		foreach ( $hours as $day => $hour ) {
-			echo $hour;
+			echo '<tr><td class="day">' . ucfirst( $day ) . '</td> <td class="hour">' . $hour . '</td></tr>';
 		}
 	?>
-
-</ul><!-- #post-<?php the_ID(); ?> -->
-
+	</tbody>
+</table>
 <?php

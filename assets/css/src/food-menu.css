@@ -6,9 +6,9 @@
 
 
  .careers-list {
-   max-width: var(--content-width);
-   margin: auto;
-   padding: 0 1em;
+	max-width: var(--content-width);
+	margin: auto;
+	padding: 0 1em;
  }
 
 .career {
@@ -22,37 +22,36 @@
 .career .career-header {
 	cursor: pointer;
 	padding: .8em;
-  position: relative;
-  text-align: center;
+	position: relative;
+	text-align: center;
 }
 
 @media (--content-query) {
-  .career .career-header {
-	text-align: left;
-  }
+	.career .career-header {
+		text-align: left;
+	}
 }
 
 .career-header::after {
-  content: "+";
-  margin-left: 1em;
-  font-weight: 700;
-  position: absolute;
-  right: 1em;
-  top: .1em;
-  font-size: 2em;
+	content: "+";
+	font-weight: 700;
+	position: absolute;
+	right: 0.1em;
+	top: 0.1em;
+	font-size: 2em;
 }
 
 
 .career.open .career-header::after {
-  content: "-";
+	content: "-";
 }
 
 .career-title {
-  margin: 0;
+	margin: 0;
 }
 
 .career-type {
-  font-size: .8em;
+	font-size: 0.8em;
 }
 
 .career-header:hover {

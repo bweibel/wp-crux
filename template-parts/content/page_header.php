@@ -12,17 +12,21 @@ $theme = get_template_directory_uri();
 if ( is_404() ) {
 	?>
 	<header class="page-header">
-		<h1 class="page-title">
-			<?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wp-rig' ); ?>
-		</h1>
+		<section class="entry-title-container">
+			<h1 class="page-title">
+				<?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wp-rig' ); ?>
+			</h1>
+		</section>
 	</header><!-- .page-header -->
 	<?php
 } elseif ( is_home() && ! have_posts() ) {
 	?>
 	<header class="page-header">
+	<section class="entry-title-container">
 		<h1 class="page-title">
 			<?php esc_html_e( 'Nothing Found', 'wp-rig' ); ?>
 		</h1>
+	</section>
 	</header><!-- .page-header -->
 	<?php
 } elseif ( is_home() && ! is_front_page() ) {

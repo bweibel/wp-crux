@@ -26,6 +26,7 @@
 @import "_elements.css";
 @import "_links.css";
 @import "_buttons.css";
+@import "_acf-blocks.css";
 
 
 /*--------------------------------------------------------------
@@ -239,7 +240,7 @@ select {
 	display: flex;
 	justify-content: space-between;
 	z-index: 10;
-	background: linear-gradient(#fff4da99, #ffffff00);
+	background: linear-gradient(#fff4da99 50%, #ffffff00);
 	transition: background .6s ease-out, box-shadow .6s ease-out;
 }
 
@@ -250,6 +251,7 @@ select {
 
 @media (--wide-menu-query) {
 	.site-header {
+		background: linear-gradient(#fff4da77, #ffffff00);
 		justify-content: space-around;
 	}
 
@@ -278,6 +280,7 @@ select {
 
 .site-header.sticky .custom-logo {
 	min-width: 140px;
+	max-width: 50%;
 	width: auto;
 }
 
@@ -324,6 +327,66 @@ select {
 	margin: 0 auto;
 	border: none;
 	background: transparent;
+	width: 4rem;
+	max-width: none;
+	min-width: 0;
+	height: 4rem;
+	padding: 0.2rem;
+	margin-right: .5rem;
+}
+
+.nav--toggle-small .menu-toggle .menu-icon {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	pointer-events: none;
+}
+
+.nav--toggle-small .menu-toggle .menu-icon span {
+	height: 0.4rem;
+	width: 100%;
+	background-color: blue;
+	display: block;
+	margin: 0.3rem auto;
+	background-color: var(--color-theme-orange);
+	border-radius: 1rem;
+	pointer-events: none;
+	opacity: 1;
+	transition: opacity .2s, height 0.2s, width 0.2s, transform 0.2s;
+	transform-origin: center;
+}
+
+.nav--toggle-small .menu-toggle .menu-icon span:nth-child(1) {
+	height: 0.6rem;
+	background-color: var(--color-theme-red);
+}
+
+.nav--toggle-small .menu-toggle .menu-icon span:nth-child(2) {
+	height: 0.4rem;
+	background-color: var(--color-theme-orange);
+}
+
+.nav--toggle-small .menu-toggle .menu-icon span:nth-child(3) {
+	height: 0.2rem;
+	background-color: var(--color-theme-yellow);
+}
+
+.nav--toggled-on .menu-toggle .menu-icon span:nth-child(2) {
+	opacity: 0;
+}
+
+.nav--toggled-on .menu-toggle .menu-icon span:nth-child(1),
+.nav--toggled-on .menu-toggle .menu-icon span:nth-child(3) {
+	height: .4rem;
+	width: 3rem;
+}
+
+.nav--toggled-on .menu-toggle .menu-icon span:nth-child(1) {
+	transform: translateY(1rem) rotate(45deg);
+}
+
+.nav--toggled-on .menu-toggle .menu-icon span:nth-child(3) {
+	transform: translateY(-1rem) rotate(-45deg);
 }
 
 .nav--toggle-small .menu {
@@ -338,7 +401,18 @@ select {
 @media (--narrow-menu-query) {
 
 	.nav--toggle-small.nav--toggled-on .menu {
-		display: block;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+
+	.primary-menu-container {
+		opacity: 0;
+		transition: opacity .2s;
+	}
+
+	.nav--toggled-on .primary-menu-container {
+		opacity: 1;
 	}
 }
 
@@ -454,6 +528,7 @@ select {
 }
 
 @media (--narrow-menu-query) {
+
 	.primary-menu-container #primary-menu{
 		position: absolute;
 		top: 6rem;
@@ -461,14 +536,27 @@ select {
 		bottom: 0;
 		right: 0;
 		background: var(--color-black-transparent);
-		height: 100vh;
+		height: 0;
 		width: 100vw;
-		padding: 1rem 1rem;
-		transition: top .2s ease-in;
+		padding: 2rem 1rem;
+		transition: top .2s ease-in, height 0.2s ease-in;
+	}
+
+	.nav--toggled-on .primary-menu-container #primary-menu{
+		height: calc(100vh - 6rem);
 	}
 
 	.site-header.sticky .primary-menu-container #primary-menu {
-		top: 3.6rem;
+		height: calc(100vh - 4rem);
+		top: 4rem;
+	}
+
+	.site-main {
+		transition: filter 0.2s;
+	}
+
+	.site-main.nav--toggled-on {
+		filter: blur(.5rem);
 	}
 }
 
@@ -480,10 +568,11 @@ select {
 
 	color: var(--color-theme-cream);
 	text-align: center;
-	font-size: 1.6em;
+	font-size: 1.2em;
 }
 
 @media (--wide-menu-query) {
+
 	.main-navigation a {
 		color: var(--color-theme-black);
 		padding: 0.5em 1em 0.5em 0;
@@ -492,7 +581,7 @@ select {
 	}
 
 	.sticky .main-navigation a {
-		font-size: .8em;
+		font-size: 0.8em;
 	}
 
 }
@@ -786,7 +875,7 @@ were hidden (via .neverending) before. */
 
 .woocommerce .products ul,
 .woocommerce ul.products {
-	margin: 0 0 1em;
+	margin: 1em auto;
 	padding: 0;
 	list-style: none outside;
 	clear: both;
@@ -798,8 +887,9 @@ were hidden (via .neverending) before. */
 woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	flex-wrap: wrap;
+	align-content: stretch;
 }
 
 .woocommerce div.product form.cart {
@@ -808,6 +898,8 @@ woocommerce ul.products li.product,
 	flex-wrap: wrap;
 	align-items: baseline;
 }
+
+.woocommerce
 
 .woocommerce-ordering {
 	display: none;
@@ -820,10 +912,13 @@ woocommerce ul.products li.product,
 }
 
 .woocommerce .product a.button,
-.woocommerce .product input.button {
-	width: 100%;
-	margin: 0;
-	font-size: .8em;;
+.woocommerce .product input.button,
+.woocommerce .product a.button:hover,
+.woocommerce .product input.button:hover  {
+	max-width: 12em;
+	margin: auto;
+	font-size: .8em;
+
 	/* padding: 1em 1.4em; */
 }
 
@@ -896,7 +991,7 @@ woocommerce ul.products li.product,
 }
 
 .entry.product {
-	padding-top: 10em;
+	/* padding-top: 10em; */
 }
 
 .woocommerce a.added_to_cart {
@@ -910,8 +1005,14 @@ woocommerce ul.products li.product,
 }
 
 /* Single Product */
+
+.single-product .site {
+	padding-top: 10rem;
+}
+
 .woocommerce div.product .woocommerce-tabs ul.tabs {
 	margin-bottom: 0;
+	display: none;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li a {
@@ -988,4 +1089,16 @@ woocommerce ul.products li.product,
 
 .woocommerce-loop-category__title .count {
 	display: none;
+}
+
+.sku_wrapper {
+	display:none;
+	}
+
+.woocommerce .custom-logo, .woocommerce-page .custom-logo {
+	max-width: 300px;
+}
+
+.woocommerce .woocommerce-breadcrumb {
+    margin: 2rem auto;
 }

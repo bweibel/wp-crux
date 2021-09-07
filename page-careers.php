@@ -39,31 +39,34 @@ wp_rig()->print_styles( 'wp-rig-content' );
 		?>
 
 		<div id="careers-list" class="careers-list">
-	<?php if ( $career_query->have_posts() ) : ?>
-	  <!-- the loop -->
-		<?php
-		while ( $career_query->have_posts() ) :
-			$career_query->the_post();
-						get_template_part( 'template-parts/careers/career' );
-						endwhile;
-		?>
-	  <!-- end of the loop -->
+		<?php if ( $career_query->have_posts() ) : ?>
+		<!-- the loop -->
+			<?php
+			while ( $career_query->have_posts() ) :
+				$career_query->the_post();
+							get_template_part( 'template-parts/careers/career' );
+							endwhile;
+			?>
+		<!-- end of the loop -->
 
 				<?php wp_reset_postdata(); ?>
 			<?php endif; ?>
 		</div>
-		<section class="entry-content">
-			<img class="alignnone size-full wp-image-6763" src="http://crux.local/wp-content/uploads/2021/08/Crux_Shop.jpg" alt="Man in Crux hat" width="1920" height="1000" />
-		</section>
+
+		<?php
+		// Additional Page Content (ACF).
+		get_template_part( 'template-parts/acf/flexible', get_post_type(), array( 'row_group' => 'page_blocks') );
+		?>
+
 	</main><!-- #primary -->
 	<script>
 		if ( 'loading' === document.readyState ) {
 		// The DOM has not yet been loaded.
 		document.addEventListener( 'DOMContentLoaded', initCareers );
-	  } else {
+		} else {
 		// The DOM has already been loaded.
 		initCareers();
-	  }
+		}
 
 			function initCareers() {
 				const listEl = document.getElementById('careers-list');
@@ -81,13 +84,8 @@ wp_rig()->print_styles( 'wp-rig-content' );
 							}
 					});
 				})
-
-				
 			}
 
-			function addClickEvent() {
-
-			}
 
 	</script>
 <?php

@@ -48,6 +48,11 @@ wp_rig()->print_styles('wp-rig-content', 'wp-rig-food-cart' );
 			<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
 	</section>
+
+	<?php
+	// Additional Page Content (ACF).
+	get_template_part( 'template-parts/acf/flexible', get_post_type(), array( 'row_group' => 'page_blocks') );
+	?>
 </main><!-- #primary -->
 
 <?php

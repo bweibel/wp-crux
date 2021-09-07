@@ -1,0 +1,59 @@
+@import "_custom-properties.css";
+
+/*--------------------------------------------------------------
+# Links
+--------------------------------------------------------------*/
+.column-container {
+	display: flex;
+	flex-direction: column;
+}
+
+@media (--content-query) {
+
+	.column-container {
+		display: flex;
+		flex-direction: row;
+	}
+	.column-container .column:first-child,
+	.column-container .column:last-child {
+		margin-left: 0;
+	}
+
+}
+
+.column-container .column {
+	margin: 1em;
+}
+
+.column-container .column,
+.column-container .column .size-1{
+	flex-grow: 1;
+}
+
+.column-container .column,
+.column-container .column .size-2{
+	flex-grow: 2;
+}
+
+.column-container .column,
+.column-container .column .size-3 {
+	flex-grow: 3;
+}
+
+
+.column-container .column,
+.column-container .column .size-4 {
+	flex-grow: 4;
+}
+
+
+.column-container .column,
+.column-container .column .size-5 {
+	flex-grow: 5;
+}
+
+
+.column-container .column,
+.column-container .column .size-6 {
+	flex-grow: 6;
+}

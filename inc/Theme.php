@@ -152,12 +152,15 @@ class Theme {
 			new Customizer\Component(),
 			new Styles\Component(),
 			new Remove_Comments\Component(),
+			new Flexslider\Component(),
+			new Beerlist\Component(),
+			new Woocommerce\Component(),
 		);
 
 		if ( defined( 'JETPACK__VERSION' ) ) {
 			$components[] = new Jetpack\Component();
 		}
-
+		http://localhost:8181
 		return $components;
 	}
 }

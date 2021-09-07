@@ -53,6 +53,11 @@ h6 {
 	font-family: var(--global-font-family);
 }
 
+.entry-content h2,
+.entry-content h3 {
+	font-size: 1.2em;
+}
+
 
 .entry-title-singular,
 .page-title {
@@ -171,4 +176,8 @@ ins {
 
 big {
 	font-size: 125%;
+}
+
+.text-centered {
+	text-align: center;
 }

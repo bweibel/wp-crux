@@ -347,6 +347,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 					return 'page-food-carts.php' === basename( $template );
 				},
 			),
+			'wp-rig-flexslider' => array(
+				'file' => 'flexslider.min.css',
+				'preload_callback' => function() {
+					global $template;
+					return 'page-beers.php' === basename( $template );
+				},
+			),
 		);
 
 		/**
@@ -395,8 +402,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		$google_fonts = array(
 			// 'Roboto Condensed' => array( '400', '400i', '700', '700i' ),
-			// 'Crimson Text'     => array( '400', '400i', '600', '600i' ),
-			'Noto Serif'             => array( '400', '400i', '600', '600i' ),
+			'Crimson Pro'     => array( '400', '400i', '600', '600i' ),
+			'Noto Serif'      => array( '400', '400i', '600', '600i' ),
 		);
 
 		/**

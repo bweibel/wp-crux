@@ -14,30 +14,47 @@ use WP_Query;
 
 get_header();
 
-wp_rig()->print_styles( 'wp-rig-content', 'wp-rig-beers' );
+wp_rig()->print_styles( 'wp-rig-content', 'wp-rig-beers', 'wp-rig-flexslider' );
+
+wp_enqueue_script('wp-rig-beerlist');
 
 $taxQuery = array(
-	'taxonomy'  => 'beer-series',
+	'taxonomy'  => 'beer_series',
 	'field'     => 'slug',
-	'terms'		=> 'archive',
-	'operator'	=> 'NOT IN'
+	'terms'     => 'archive',
+	'operator'  => 'NOT IN',
 );
 
-// Make our beer query
+// Make our beer query.
 $sorting = 'ASC';
 $args = array(
 	'post_type' => 'crux_beer',
 	'orderby' => 'menu_order',
 	'order' => $sorting,
 	'posts_per_page' => -1,
-	'tax_query' => array($taxQuery),
+	'tax_query' => array( $taxQuery ),
 );
+
 $beer_query = new WP_Query( $args );
 
+// Featured Query.
+
+$args = array(
+	'post_type'      => 'crux_beer',
+	'posts_per_page' => -1,
+	'meta_key'       => 'featured',
+	'meta_value'     => 'true',
+	'tax_query'      => array( $taxQuery ),
+);
+
+$featured_query = new WP_Query( $args );
+
+// Archive Query.
+
 $taxQuery = array(
-	'taxonomy'  => 'beer-series',
+	'taxonomy'  => 'beer_series',
 	'field'     => 'slug',
-	'terms'		=> 'archive',
+	'terms'     => 'archive',
 );
 
 $archiveArgs = array(
@@ -45,7 +62,7 @@ $archiveArgs = array(
 	'orderby' => 'menu_order',
 	'order' => $sorting,
 	'posts_per_page' => -1,
-	'tax_query' => array($taxQuery),
+	'tax_query' => array( $taxQuery ),
 );
 
 $archive_query = new WP_Query( $archiveArgs );
@@ -60,8 +77,36 @@ $archive_query = new WP_Query( $archiveArgs );
 		}
 		?>
 
+		<?php if ( $featured_query ->have_posts() ) : ?>
+		<!-- the loop -->
+		<section class="entry-content">
+		<h2 class="text-centered">Featured Beers</h2>
+		<div class="flexslider" id="featured-beers">
+			<ul class="slides">
+
+				<?php
+				while ( $featured_query ->have_posts() ) :
+					$featured_query ->the_post();
+						get_template_part( 'template-parts/beers/featured-beer' );
+				endwhile;
+				?>
+
+				<!-- end of the loop -->
+				</ul>
+			</div>
+			<div class="featured-controls"></div>
+
+		</section>
+		<?php endif; ?>
+		<?php wp_reset_postdata(); ?>
+
+
+		<section class="entry-content">
+			<h2 class="text-centered">What you'll find on the shelf & on tap beyond our tasting room</h2>
+		</section>
+
 		<?php if ( $beer_query->have_posts() ) : ?>
-	  <!-- the loop -->
+		<!-- the loop -->
 			<section class="beer-container" id="list-container">
 				<section class="filter-controls" id="filter-controls">
 					<header class="filter-header">
@@ -82,116 +127,44 @@ $archive_query = new WP_Query( $archiveArgs );
 				</ul>
 			</section>
 		<?php endif; ?>
+		<?php wp_reset_postdata(); ?>
 
 		<?php if ( $archive_query->have_posts() ) : ?>
-	  <!-- the loop -->
+		<!-- the loop -->
 			<section class="beer-container archive" id="archive-container">
-				<button class="button" id="archive-button">Explore The<br>Archives</button>
+				<button class="button archive-button" id="archive-button">Explore The<br>Archives</button>
 				<ul id="archive-list" class="beer-list hidden">
 				<h2>The Archives</h2>
 					<?php
 					while ( $archive_query->have_posts() ) :
 						$archive_query->the_post();
-							get_template_part( 'template-parts/beers/beer' );
-							endwhile;
+						get_template_part( 'template-parts/beers/beer' );
+					endwhile;
 					?>
 					<!-- end of the loop -->
 				</ul>
 			</section>
 		<?php endif; ?>
 
-		<section class="entry-content">
-			<?php echo do_shortcode( '[metaslider id="6789"]' ); ?>
-		</section>
 		<?php wp_reset_postdata(); ?>
+
+		<?php
+		// Additional Page Content (ACF).
+		get_template_part( 'template-parts/acf/flexible', get_post_type(), array( 'row_group' => 'page_blocks') );
+		?>
 
 	</main><!-- #primary -->
 
 	<script>
-		if ( 'loading' === document.readyState ) {
-			// The DOM has not yet been loaded.
-			document.addEventListener( 'DOMContentLoaded', init );
-		} else {
-			// The DOM has already been loaded.
-			init();
-		}
-
-		function init() {
-			BeerList('list-container', 'filter-controls');
-			BeerList('archive-container');
-
-			const archiveListEl = document.getElementById('archive-list');
-			const archiveButton = document.getElementById('archive-button');
-			addClickToggle(archiveButton, archiveListEl);
-		}
-
-
-		function BeerList(listId, filterId=''){
-			const listEl = document.getElementById(listId);
-			const beerEls = [...listEl.querySelectorAll('.beer')];
-			const filterEl = document.getElementById(filterId);
-			const filterNameEl = document.getElementById('filter-name');
-
-			if(filterEl) {
-				initFilters();
-			}
-
-			initBeers();
-
-			function initBeers() {
-				beerEls.forEach(beer => {
-					addClickToggle( beer.getElementsByClassName('beer-header')[0], beer );
-				});
-			}
-
-			function initFilters() {
-				addClickToggle(filterEl.getElementsByClassName("filter-header")[0], filterEl);
-				const filterEls = [...document.getElementsByClassName('filter-button')];
-				filterEls.forEach(button => {
-					button.addEventListener('click', e => {
-						filterEls.forEach(button => {
-							button.classList.remove("active");
-						})
-						button.classList.add("active");
-						updateFilter(button.dataset.filterslug, button.dataset.filtername);
-					})
-				});
-			}
-
-			function updateFilter(newFilter, newFilterName) {
-				// Update filter name
-				if ( newFilter ) {
-					filterNameEl.innerHTML = newFilterName;
-				} else {
-					filterNameEl.innerHTML = '';
-				}
-
-				beerEls.forEach( beer => {
-					if (!newFilter){
-						beer.classList.remove('hidden');
-					} else {
-						if(!beer.classList.contains('beer-series-' + newFilter)) {
-							beer.classList.add('hidden');
-						} else {
-							beer.classList.remove('hidden');
-						}
-					}
-
-				});
-				//Close the filter menu after switching
-				filterEl.classList.remove('open');
-			}
-		}
-
-		function addClickToggle(el, target) {
-			el.addEventListener('click', e => {
-				if (!target.classList.contains("open")) {
-					target.classList.add("open");
-				} else {
-					target.classList.remove("open");
-				}
+		jQuery(window).load( function() {
+			jQuery( '.flexslider' ).flexslider({
+				animation: "slide",
+				pauseOnHover: true,
+				itemWidth: 200,
+				itemMargin: 20,
 			});
-		}
+		});
 	</script>
+
 <?php
 get_footer();

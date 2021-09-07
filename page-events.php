@@ -27,6 +27,11 @@ wp_rig()->print_styles('wp-rig-content', 'wp-rig-events');
 	?>
 	<ul id="event-list" class="event-list"></ul>
 
+	<?php
+	// Additional Page Content (ACF).
+	get_template_part( 'template-parts/acf/flexible', get_post_type(), array( 'row_group' => 'page_blocks') );
+	?>
+
 	<script>
 		if ('loading' === document.readyState) {
 			// The DOM has not yet been loaded.
@@ -86,7 +91,7 @@ wp_rig()->print_styles('wp-rig-content', 'wp-rig-events');
 			titleEl.innerHTML = title;
 			dateEl.innerHTML = `${startDate.getMonth()+1}/${startDate.getDate()}`;
 
-			seperatorEl.innerHTML = '|';
+			seperatorEl.innerHTML = ' | ';
 			detailsEl.innerHTML = `<span class="time">${DAYS_OF_WEEK[startDate.getDay()]} | ${formatTimes(startDate)} - ${ formatTimes(endDate)}</span><p>${details}</p>`;
 
 			append(eventEl, headerEl);

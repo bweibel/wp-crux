@@ -10,14 +10,22 @@ namespace WP_Rig\WP_Rig;
 $abv = get_post_meta( $id, 'wpcf-beer-abv', true );
 $ibu = get_post_meta( $id, 'wpcf-beer-ibu', true );
 $untappd = get_post_meta( $id, 'wpcf-beer-untappd-id', true );
+$info = '';
 
-$info = $abv . ' | ' . $ibu . ' IBU';
+if ( $ibu && $abv ) {
+	$info = $abv . ' ABV | ' . $ibu . ' IBU';
+} elseif ( $ibu && ! $abv ) {
+	$info = $ibu . ' IBU';
+} elseif ( ! $ibu && $abv ){
+	$info = $abv . '% ABV';
+}
 
 ?>
 
 <div class="entry-content">
   <span class="beer-info"><?php echo $info; ?></span>
-  <span class="untappd"><a href="https://untappd.com/beer/<?php echo $untappd; ?>" target="_blank">Untappd Check-in</a></span>
+  <?php if( $untappd !== null ): ?>
+  <?php endif; ?>
 	<?php
 	get_template_part( 'template-parts/content/entry_thumbnail', get_post_type() );
 	the_content(
@@ -34,6 +42,9 @@ $info = $abv . ' | ' . $ibu . ' IBU';
 			get_the_title()
 		)
 	);
+	?>
+	<span class="untappd"><a href="https://untappd.com/beer/<?php echo $untappd; ?>" target="_blank">Untappd Check-in</a></span>
+	<?php
 
 	wp_link_pages(
 		array(

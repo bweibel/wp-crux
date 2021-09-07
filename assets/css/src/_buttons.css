@@ -23,7 +23,7 @@ input[type="submit"] {
 	cursor: pointer;
 	font-family: var(--highlight-font-family);
 	text-transform: uppercase;
-	padding: 0.8em 2em;
+	padding: 0.6em 1em;
 	margin: 0.5em;
 	line-height: 1.4;
 	text-decoration: none;
@@ -31,7 +31,9 @@ input[type="submit"] {
 	position: relative;
 	z-index: 1;
 	transform: translateY(0);
-	transition: transform .2s ;
+	transition: transform 0.2s ;
+	max-width: 20em;
+	min-width: 12em;
 }
 
 .button:hover,

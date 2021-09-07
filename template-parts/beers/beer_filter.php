@@ -9,7 +9,7 @@ namespace WP_Rig\WP_Rig;
 
 $series = get_terms(
 	array(
-		'taxonomy' => 'beer-series',
+		'taxonomy' => 'beer_series',
 		'hide_empty' => true,
 	)
 );
@@ -32,7 +32,6 @@ usort(
 			return $a->order - $b->order;
 	}
 );
-
 
 ?>
 

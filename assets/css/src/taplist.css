@@ -14,9 +14,9 @@
 
 .tap-list .beer {
 	border-bottom: 2px solid var(--color-theme-black);
-	transition: background .5s;
-	margin-bottom: .4rem;
-	padding-bottom: .4rem;
+	transition: background 0.5s;
+	margin-bottom: 0.4rem;
+	padding-bottom: 0.4rem;
 	position: relative;
 }
 
@@ -32,15 +32,14 @@
 	margin-left: 1em;
 	font-weight: 700;
 	position: absolute;
-	right: .5em;
-	top: .1em;
+	right: 0.1em;
+	top: 0.1em;
 	font-size: 2em;
-  }
-
-.beer.open header:after {
-content: "-";
 }
 
+.beer.open header:after {
+	content: "-";
+}
 
 .beer .content {
 	padding: 0 1em;
@@ -51,14 +50,12 @@ content: "-";
 }
 
 @media (--content-query) {
-
 	.beer .beer-header,
 	.beer .content {
 		text-align: left;
 		padding-left: 2em;
 		padding-right: 2em;
 	}
-
 }
 
 .tap-list .beer header:hover {
@@ -71,12 +68,10 @@ content: "-";
 	background-color: var(--color-theme-black);
 }
 
-
 .tap-list .beer.open .content {
 	margin-bottom: 2rem;
 	max-height: 100vh;
 }
-
 
 .beer .title {
 	margin: 0;

@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template Name: Events Template
- * The template for displaying Events
+ * Template Name: Taplist Template
+ * The template for displaying CurrentTaplist
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -28,6 +28,11 @@ wp_rig()->print_styles('wp-rig-content', 'wp-rig-taplist' );
 	<section class="beer-container">
 		<ul id="tap-list" class="tap-list"></ul>
 	</section>
+
+	<?php
+	// Additional Page Content (ACF).
+	get_template_part( 'template-parts/acf/flexible', get_post_type(), array( 'row_group' => 'page_blocks') );
+	?>
 
 	<script>
 		if ('loading' === document.readyState) {
@@ -57,7 +62,7 @@ wp_rig()->print_styles('wp-rig-content', 'wp-rig-taplist' );
 			const beerEl = createNode('li');
 
 			const title = beer.name;
-			const details = beer.description;
+			// const details = beer.description;
 
 			const headerEl = createNode('header');
 			const titleEl = createNode('h3');
@@ -71,16 +76,28 @@ wp_rig()->print_styles('wp-rig-content', 'wp-rig-taplist' );
 			titleEl.innerHTML = title;
 			styleEl.innerHTML = `${beer.style}`
 			storyEl.innerHTML = `${beer.properties.storyText}`;
-			untappdEl.innerHTML = `<a href="https://untappd.com/beer/${beer.properties.untappdId}" target="_blank">Untappd Check-in</a>`;
-			detailsEl.innerHTML = `${beer.ibus} IBU | ${beer.abv}% ABV`
+			if( beer.properties.untappdId ){
+				untappdEl.innerHTML = `<a href="https://untappd.com/beer/${beer.properties.untappdId}" target="_blank">Untappd Check-in</a>`;
+			}
+
+			let details = '';
+			if( beer.ibus && beer.abv ){
+				details = `${beer.abv}% ABV | ${beer.ibus} IBU`;
+			} else if( beer.ibus && ! beer.abv ) {
+				details = `${beer.ibus} IBU`;
+			} else if ( ! beer.ibus && beer.abv ){
+				details = `${beer.abv}% ABV`;
+			}
+
+			detailsEl.innerHTML = details;
 
 			append(beerEl, headerEl);
 			append(headerEl, titleEl);
 			append(headerEl, styleEl);
 			append(beerEl, contentEl);
 			append(contentEl, detailsEl);
-			append(contentEl, untappdEl);
 			append(contentEl, storyEl);
+			append(contentEl, untappdEl);
 
 
 			headerEl.addEventListener('click', e => {

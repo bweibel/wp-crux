@@ -13,9 +13,9 @@
 	--dropdown-symbol-width: 0.7em;
 
 	/* Typography */
-	--global-font-family: "Noto Serif", serif;
+	--global-font-family: "Crimson Pro", serif;
 	--highlight-font-family: "Landry Gothic", "Helvetica Neue", "Arial Narrow", sans-serif;
-	--global-font-size: 18;
+	--global-font-size: 20;
 	--global-font-line-height: 1.4;
 
 	/* Custom editor font sizes */
@@ -29,7 +29,7 @@
 	--border-color-dark: var(--color-theme-black);
 	--border-color-light: #ccc;
 	--color-link: var(--color-theme-orange);
-	--color-link-visited: var(--color-theme-black);
+	--color-link-visited: var(--color-theme-yellow);
 	--color-link-active: var(--color-theme-red);
 	--color-quote-border: var(--color-theme-black);
 	--color-quote-citation: #6c7781;

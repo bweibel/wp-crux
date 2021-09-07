@@ -48,7 +48,12 @@ $theme = get_template_directory_uri();
 		}
 		?>
 	>
-		<img src="<?php echo $theme; ?>/assets/images/crux_menu.svg" alt="Mobile Menu" width="50px">
+		<!-- <img src="<?php echo $theme; ?>/assets/images/crux_menu.svg" alt="Mobile Menu" width="50px"> -->
+		<div class="menu-icon">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
 	</button>
 
 	<div class="primary-menu-container">

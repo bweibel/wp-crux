@@ -22,6 +22,9 @@ wp_rig()->print_styles( 'wp-rig-content' );
 
 			get_template_part( 'template-parts/content/entry', 'page' );
 		}
+
+		// Additional Page Content (ACF).
+		get_template_part( 'template-parts/acf/flexible', get_post_type(), array( 'row_group' => 'page_blocks') );
 		?>
 	</main><!-- #primary -->
 <?php

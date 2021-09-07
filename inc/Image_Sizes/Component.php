@@ -47,7 +47,8 @@ class Component implements Component_Interface {
 		$width = $size[0];
 
 		if ( 740 <= $width ) {
-			$sizes = '100vw';
+			// $sizes = '100vw';
+			$sizes = '960';
 		}
 
 		if ( wp_rig()->is_primary_sidebar_active() ) {
@@ -67,7 +68,9 @@ class Component implements Component_Interface {
 	 */
 	public function filter_header_image_tag( string $html, $header, array $attr ) : string {
 		if ( isset( $attr['sizes'] ) ) {
-			$html = str_replace( $attr['sizes'], '100vw', $html );
+			// $html = str_replace( $attr['sizes'], '100vw', $html );
+			$html = str_replace( $attr['sizes'], '960px', $html );
+
 		}
 
 		return $html;
@@ -82,7 +85,9 @@ class Component implements Component_Interface {
 	 * @return array The filtered attributes for the image markup.
 	 */
 	public function filter_post_thumbnail_sizes_attr( array $attr, WP_Post $attachment, $size ) : array {
-		$attr['sizes'] = '100vw';
+		// $attr['sizes'] = '100vw';
+		$attr['sizes'] = '1920px';
+
 
 		if ( wp_rig()->is_primary_sidebar_active() ) {
 			$attr['sizes'] = '(min-width: 960px) 75vw, 100vw';

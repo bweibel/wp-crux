@@ -150,6 +150,7 @@ function initNavToggleSmall() {
  */
 function initEachNavToggleSmall( nav ) {
 	const menuTOGGLE = nav.querySelector( '.menu-toggle' );
+	const siteMain = document.querySelector( '.site-main' );
 
 	// Return early if MENUTOGGLE is missing.
 	if ( ! menuTOGGLE ) {
@@ -161,8 +162,10 @@ function initEachNavToggleSmall( nav ) {
 
 	menuTOGGLE.addEventListener( 'click', ( e ) => {
 		nav.classList.toggle( 'nav--toggled-on' );
+		siteMain.classList.toggle( 'nav--toggled-on' );
 		e.target.setAttribute( 'aria-expanded', 'false' === e.target.getAttribute( 'aria-expanded' ) ? 'true' : 'false' );
 	}, false );
+
 }
 
 /**

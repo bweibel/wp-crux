@@ -51,13 +51,12 @@
 }
 
 .event header:after {
-  content: "+";
-  margin-left: 1em;
-  font-weight: 700;
-  position: absolute;
-  right: .5em;
-  top: .1em;
-  font-size: 2em;
+	content: "+";
+	font-weight: 700;
+	position: absolute;
+	right: 0.1em;
+	top: 0.1em;
+	font-size: 2em;
 }
 
 .event.open header:after {
