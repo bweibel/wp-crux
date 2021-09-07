@@ -4,6 +4,8 @@
 
 @import "_media.css";
 
+
+
 .beer-container {
 	max-width: var(--content-width);
 	margin: auto;
@@ -259,4 +261,13 @@
 #featured-beers.flexslider .flex-direction-nav a::before {
 	content: '';
 
+}
+
+/* single-crux_beer */
+.single-crux_beer .crux_beer {
+	margin-top: 10rem;
+}
+
+.single-crux_beer .crux_beer .post-thumbnail img {
+	max-width: 100px;
 }
