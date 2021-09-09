@@ -85,8 +85,8 @@ $archive_query = new WP_Query( $archiveArgs );
 			<ul class="slides">
 
 				<?php
-				while ( $featured_query ->have_posts() ) :
-					$featured_query ->the_post();
+				while ( $featured_query->have_posts() ) :
+					$featured_query->the_post();
 						get_template_part( 'template-parts/beers/featured-beer' );
 				endwhile;
 				?>

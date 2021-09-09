@@ -11,7 +11,7 @@ $className = 'beer';
 
 ?>
 
-<li class="featured-beer" data-id="<?php the_ID(); ?>">
+<li class="featured-beer" data-id="<?php echo get_post_field( 'post_name') ?>">
 <?php
 	the_post_thumbnail('post-thumbnail' );
 	the_title( '<h3 class="flex-caption text-centered">', '</h3>' );

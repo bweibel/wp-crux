@@ -11,7 +11,7 @@ $className = 'beer';
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( $className ); ?>>
+<article id="<?php echo get_post_field( 'post_name'); ?>" <?php post_class( $className ); ?>>
 	<?php
 	get_template_part( 'template-parts/beers/beers_header', get_post_type() );
 	get_template_part( 'template-parts/beers/beer_content', get_post_type() );

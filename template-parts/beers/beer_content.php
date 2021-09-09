@@ -43,7 +43,7 @@ if ( $ibu && $abv ) {
 		)
 	);
 	?>
-	<span class="untappd"><a href="https://untappd.com/beer/<?php echo $untappd; ?>" target="_blank">Untappd Check-in</a></span>
+	<span class="untappd"><a href="https://untappd.com/beer/<?php echo $untappd; ?>" target="_blank" rel="noopener">Untappd Check-in</a></span>
 	<?php
 
 	wp_link_pages(

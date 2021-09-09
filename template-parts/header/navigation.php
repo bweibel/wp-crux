@@ -58,5 +58,6 @@ $theme = get_template_directory_uri();
 
 	<div class="primary-menu-container">
 		<?php wp_rig()->display_primary_nav_menu( array( 'menu_id' => 'primary-menu' ) ); ?>
+		<?php get_template_part( 'template-parts/header/cart' ); ?>
 	</div>
 </nav><!-- #site-navigation -->
