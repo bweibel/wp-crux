@@ -49,7 +49,6 @@ class Component implements Component_Interface {
 	public function action_add_image_sizes() {
 		add_image_size( 'wp-rig-featured', 960, 480, true );
 		add_image_size( 'wp-rig-large', 1920, 1000, true );
-		add_image_size( 'wp-rig-hero', 2560, 1440, true );
 		add_image_size( 'wp-rig-mobile', 500, 480, true );
 	}
 }
