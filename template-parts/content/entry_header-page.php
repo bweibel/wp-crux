@@ -12,10 +12,12 @@ $theme = get_template_directory_uri();
 $colors = array( 'yellow', 'cream' );
 $color = $colors[ rand( 0, 1 ) ];
 
+$img_src = wp_get_attachment_image_src(  'wp-rig-large' );
 ?>
 
 <header class="entry-header <?php echo $color; ?>" >
 	<?php
+	echo $img_src;
 	get_template_part( 'template-parts/content/entry_thumbnail', get_post_type() );
 	echo '<section class="entry-title-container">';
 		get_template_part( 'template-parts/content/entry_title', get_post_type() );

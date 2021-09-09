@@ -19,13 +19,25 @@ if ( 'attachment' === $support_slug ) {
 
 $header_image = get_field("header_image");
 
-if ( post_password_required() || ! post_type_supports( $support_slug, 'thumbnail' ) || ! has_post_thumbnail() &&  !$header_image ) {
+if ( post_password_required() || ! post_type_supports( $support_slug, 'thumbnail' ) || ! has_post_thumbnail() && ! $header_image ) {
 	return;
 }
 if ( is_singular( get_post_type() ) ) {
+
 	?>
 	<div class="post-thumbnail">
-		<?php the_post_thumbnail( 'wp-rig-large', array( 'class' => 'skip-lazy' ) ); ?>
+		<?php
+		$image_url_mobile = get_the_post_thumbnail_url( get_the_ID(), 'wp-rig-mobile' );
+		$image_url_medium = get_the_post_thumbnail_url( get_the_ID(), 'wp-rig-featured' );
+		$image_url_large = get_the_post_thumbnail_url( get_the_ID(), 'wp-rig-large' );
+		the_post_thumbnail( 'wp-rig-large', array(
+			'class' => 'skip-lazy',
+			'srcset' => $image_url_medium . ' 960w, ' . $image_url_large . ' 1920w',
+		) );
+
+
+		?>
+
 
 	</div><!-- .post-thumbnail -->
 	<?php
@@ -36,9 +48,11 @@ if ( is_singular( get_post_type() ) ) {
 	</div><!-- .post-thumbnail -->
 	<?php
 } else {
+	// Blog Posts and Beers
 	if ( get_post_type() !== 'crux_beer' ) {
 		echo '<a class="post-thumbnail" href="' . get_permalink() . '" aria-hidden="true">';
 	}
+
 	global $wp_query;
 
 	if ( 0 === $wp_query->current_post ) {

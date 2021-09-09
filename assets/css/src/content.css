@@ -111,7 +111,7 @@
 {
 	min-width: 100%;
 	margin: 0;
-	min-height: 500px;
+	min-height: 480px;
 	max-height: 60vh;
 	background-color: var(--color-theme-cream-dark);
 	background-position: center;
