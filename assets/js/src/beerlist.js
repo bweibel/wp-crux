@@ -1,54 +1,66 @@
-if ( 'loading' === document.readyState) {
+if ( 'loading' === document.readyState ) {
 	// The DOM has not yet been loaded.
-	document.addEventListener( 'DOMContentLoaded', init  );
+	document.addEventListener( 'DOMContentLoaded', init );
+
 } else {
 	// The DOM has already been loaded.
 	init( );
 }
 
+window.addEventListener( 'load', function() {
+	setTimeout(checkURL, 1200);
+}
+);
+
+
 function init() {
 	BeerList( 'list-container', 'filter-controls' );
-	BeerList( 'archive-container'  );
+	BeerList( 'archive-container' );
 	const archiveListEl = document.getElementById( 'archive-list' );
 	const archiveButton = document.getElementById( 'archive-button' );
 	const featuredEl = document.getElementById( 'featured-beers' );
-	const featuredBeers = [...featuredEl.getElementsByClassName( 'featured-beer')];
+	const featuredBeers = [ ...featuredEl.getElementsByClassName( 'featured-beer') ];
 
-	featuredBeers.forEach( beer => {
-		beer.addEventListener( 'click', (e) => {
-			openBeerById( 'post-' + beer.dataset.id );
-		})
-	})
+	if ( featuredBeers ) {
+		featuredBeers.forEach( ( beer ) => {
+			beer.addEventListener( 'click', ( ) => {
+				openBeerById( beer.dataset.id );
+			} );
+		} );
+	}
 
 	addClickToggle(archiveButton, archiveListEl );
+
 }
 
 function BeerList(listId, filterId = '') {
 	const listEl = document.getElementById(listId );
-	const beerEls = [...listEl.querySelectorAll( '.beer')];
+	const beerEls = [ ...listEl.querySelectorAll( '.beer') ];
 	const filterEl = document.getElementById(filterId );
 	const filterNameEl = document.getElementById( 'filter-name' );
 
-	if (filterEl) {
+	if ( filterEl ) {
 		initFilters( );
 	}
 
-	initBeers( );
+	if ( beerEls ) {
+		initBeers( );
+	}
 
 	function initBeers() {
 		beerEls.forEach((beer) => {
-			addClickToggle(beer.getElementsByClassName( 'beer-header' )[0], beer );
+			addClickToggle(beer.getElementsByClassName( 'beer-header' )[ 0 ], beer );
 		} );
 	}
 
 	function initFilters() {
 		addClickToggle(
-			filterEl.getElementsByClassName( 'filter-header')[0],
+			filterEl.getElementsByClassName( 'filter-header')[ 0 ],
 			filterEl
-		 );
+		);
 		const filterEls = [...document.getElementsByClassName( 'filter-button')];
 		filterEls.forEach((button) => {
-			button.addEventListener( 'click', (e) => {
+			button.addEventListener( 'click', () => {
 				filterEls.forEach((button) => {
 					button.classList.remove( 'active' );
 				} );
@@ -56,7 +68,7 @@ function BeerList(listId, filterId = '') {
 				updateFilter(
 					button.dataset.filterslug,
 					button.dataset.filtername
-				 );
+				);
 			} );
 		} );
 	}
@@ -84,24 +96,38 @@ function BeerList(listId, filterId = '') {
 	}
 }
 
-function addClickToggle(el, target) {
-	el.addEventListener( 'click', (e) => {
-		beerClickHandler(target );
+function addClickToggle(el, target ) {
+	el.addEventListener( 'click', () => {
+		beerClickHandler( target );
 	} );
 }
 
-function beerClickHandler(target) {
-	if (! target.classList.contains( 'open')) {
+function beerClickHandler( target ) {
+	if (! target.classList.contains( 'open' ) ) {
 		target.classList.add( 'open' );
 	} else {
 		target.classList.remove( 'open' );
 	}
 }
 
-function openBeerById(beerId) {
-	const target = document.getElementById(beerId );
-	if (! target.classList.contains( 'open')) {
-		target.classList.add( 'open' );
+function openBeerById( beerId ) {
+	const target = document.getElementById( beerId );
+	if ( target ) {
+		if ( ! target.classList.contains( 'open' ) ) {
+			target.classList.add( 'open' );
+		}
+		target.scrollIntoView( { behavior: 'smooth' } );
 	}
-	target.scrollIntoView( );
+}
+
+function checkURL() {
+	console.log("check");
+	const queryString = window.location.search;
+	if ( queryString ) {
+		const urlParams = new URLSearchParams( queryString );
+		const beer = urlParams.get( 'beer' );
+		if ( beer ) {
+			openBeerById( beer );
+		}
+	}
 }
