@@ -154,6 +154,7 @@ class Theme {
 			new Remove_Comments\Component(),
 			new Flexslider\Component(),
 			new Beerlist\Component(),
+			new Hours\Component(),
 			new Woocommerce\Component(),
 		);
 

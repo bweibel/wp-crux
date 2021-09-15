@@ -121,7 +121,6 @@ function openBeerById( beerId ) {
 }
 
 function checkURL() {
-	console.log("check");
 	const queryString = window.location.search;
 	if ( queryString ) {
 		const urlParams = new URLSearchParams( queryString );

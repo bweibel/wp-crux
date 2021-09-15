@@ -36,8 +36,7 @@ class Component implements Component_Interface {
 	 * Adds the action and filter hooks to integrate with WordPress.
 	 */
 	public function initialize() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'action_register_beerlist_script' ) );
-
+		add_action( 'wp_loaded', array( $this, 'action_register_beerlist_script' ) );
 	}
 
 	/**

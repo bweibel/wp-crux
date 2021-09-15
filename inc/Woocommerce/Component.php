@@ -12,14 +12,10 @@ use function WP_Rig\WP_Rig\wp_rig;
 use WP_Post;
 use function add_action;
 use function add_filter;
-use function wp_enqueue_script;
-use function get_theme_file_uri;
-use function get_theme_file_path;
-use function wp_script_add_data;
-use function wp_localize_script;
+
 
 /**
- * Class for Flexslider.
+ * Class for Woocommerce Modifications.
  */
 class Component implements Component_Interface {
 
@@ -34,13 +30,14 @@ class Component implements Component_Interface {
 
 	/**
 	 * Adds the action and filter hooks to integrate with WordPress.
+	 * This is very ugly
 	 */
 	public function initialize() {
 		// add_action( 'wp_enqueue_scripts', array( $this, 'action_require_flexslider_script' ) );
 		add_action( 'after_setup_theme', array( $this, 'action_add_woocommerce_support' ));
 
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-		remove_action( 'woocommerce_after_main_content', array( $this, 'woocommerce_output_content_wrapper_end' ), 10 );
+		// remove_action( 'woocommerce_after_main_content', array( $this, 'woocommerce_output_content_wrapper_end' ), 10 );
 		add_action('woocommerce_before_main_content', array( $this, 'crux_woocommerce_theme_wrapper_start' ), 10 );
 		add_action('woocommerce_after_main_content', array( $this, 'crux_woocommerce_theme_wrapper_end' ), 10 );
 
@@ -48,8 +45,6 @@ class Component implements Component_Interface {
 		add_action('woocommerce_after_shop_loop', array( $this, 'crux_woocommerce_content_wrapper_end' ), 10 );
 
 		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
-
-		// add_action( 'woocommerce_before_main_content', array( $this, 'woocommerce_category_image' ), 2  );
 
 		add_filter('woocommerce_subcategory_count_html', array( $this, 'crux_woocommerce_category_count' ) );
 		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
@@ -62,11 +57,13 @@ class Component implements Component_Interface {
 		add_filter( 'woocommerce_product_tabs',  array( $this, 'remove_product_tabs' ), 98 );
 
 		add_action('woocommerce_proceed_to_checkout', array( $this, 'back_to_store' ) );
-		add_action( 'init',  array( $this, 'woo_remove_wc_breadcrumbs' ) );
+		add_action( 'after_setup_theme', array( $this, 'move_wc_breadcrumbs' ) );
 
+		// There's some weirdness with how the header images are displayed in this theme, so we have to fudge the content area here a little bit
 		remove_action('woocommerce_archive_description', 'woocommerce_taxonomy_archive_description' );
 		add_action('woocommerce_before_shop_loop', 'woocommerce_taxonomy_archive_description' );
-		add_action('woocommerce_archive_description', array( $this, 'crux_woocommerce_header'), 10 );
+		add_action('woocommerce_archive_description', array( $this, 'crux_woocommerce_header' ), 20 );
+
 		add_filter( 'woocommerce_show_page_title', '__return_false' );
 
 		add_filter( 'woocommerce_checkout_fields', array( $this, 'crux_woocommerce_hide_country' ) );
@@ -120,7 +117,7 @@ class Component implements Component_Interface {
 	}
 
 	public function crux_woocommerce_header() {
-		if ( is_product_category() || is_shop()){
+		if ( is_product_category() || is_shop()) {
 			$this->woocommerce_category_image();
 		}
 
@@ -129,26 +126,25 @@ class Component implements Component_Interface {
 	public function woocommerce_category_image() {
 		$theme = get_template_directory_uri();
 
-			$color = 'yellow';
-			global $wp_query;
-			$cat = $wp_query->get_queried_object();
-			$thumbnail_id = get_term_meta( $cat->term_id, 'header_image', true );
-			$image = wp_get_attachment_url( $thumbnail_id );
+		$color = 'yellow';
+		global $wp_query;
+		$cat = $wp_query->get_queried_object();
+		$thumbnail_id = get_term_meta( $cat->term_id, 'header_image', true );
+		$image = wp_get_attachment_url( $thumbnail_id );
 
-			echo '<div class="post-thumbnail">';
-			if ( $image ) {
-				echo '<img src="' . $image . '" alt="' . $cat->name . '" />';
-			} else {
-				$image = $theme . '/assets/images/Crux_Shop.jpg';
-				echo '<img src="' . $image . '" alt="' . $cat->name . '" />';
-			}
-			echo '</div><!-- .post-thumbnail -->';
-			echo  '<section class="entry-title-container">';
-			?><h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
-			<?php
-			echo '<img src="' . $theme . '/assets/images/' . $color . '_down_arrow.png" alt="Down Arrow" class="down-arrow">';
-			echo '</section>';
-
+		echo '<div class="post-thumbnail">';
+		if ( $image ) {
+			echo '<img src="' . $image . '" alt="' . $cat->name . '" />';
+		} else {
+			$image = $theme . '/assets/images/Crux_Shop.jpg';
+			echo '<img src="' . $image . '" alt="' . $cat->name . '" />';
+		}
+		echo '</div><!-- .post-thumbnail -->';
+		echo  '<section class="entry-title-container">';
+		?><h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
+		<?php
+		echo '<img src="' . $theme . '/assets/images/' . $color . '_down_arrow.png" alt="Down Arrow" class="down-arrow">';
+		echo '</section>';
 
 	}
 
@@ -172,8 +168,14 @@ class Component implements Component_Interface {
 		<?php
 	}
 
-	public function woo_remove_wc_breadcrumbs() {
+	/**
+	 * Move the Shop Breadcrumbs to a different location
+	 */
+	public function move_wc_breadcrumbs() {
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+		add_action( 'woocommerce_after_main_content', 'woocommerce_breadcrumb', 20 );
+		add_action( 'woocommerce_before_shop_loop', 'woocommerce_breadcrumb', 5, 0 );
+		add_action( 'woocommerce_before_single_product_summary', 'woocommerce_breadcrumb', 5, 0 );
 	}
 
 	// Hide country field from checkout, it's U.S. only.
