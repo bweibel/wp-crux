@@ -37,7 +37,7 @@
 }
 
 .event-list .event.open .details {
-	max-height: 100vh;
+	max-height: 1000vh;
 }
 
 .event .date, .event .title, .event .seperator {
