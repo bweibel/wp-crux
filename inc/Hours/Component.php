@@ -50,11 +50,13 @@ class Component implements Component_Interface {
 
 	public function handle_shortcode( $atts ) {
 		wp_enqueue_script('wp-rig-hours');
-		$color = $atts['color'];
+		if( $atts ) {
+			$color = $atts['color'];
+		}
 		ob_start();
 		?>
 		<p class="has-large-font-size" style="text-align:center" id="sundowner">
-			<strong class="<?php echo $color ?>">Sundowner Hour: <span id="sundowner-hour"></span>
+			<strong class="<?php echo $color; ?>">Sundowner Hour: <span id="sundowner-hour"></span>
 			<br>Today’s Sunset: <span id="sunset"></span></strong>
 		</p>
 		<?php

@@ -44,6 +44,11 @@ function SundownerHour( ) {
 			.catch(error => console.log(error));
 	}
 
+	/**
+	 *
+	 * @param {Date} sunset
+	 * @return {string} hours:minutes
+	 */
 	function calculateSundowner( sunset ) {
 		const sundownerStart = new Date( sunset.getTime() - ( 30 * 60 * 1000 ) );
 		const sundownerEnd = new Date( sundownerStart.getTime() + ( 60 * 60 * 1000 ) );
@@ -53,6 +58,10 @@ function SundownerHour( ) {
 	function roundTime( hours, minutes ) {
 		let hourRounded = ((((minutes/105) + .5) | 0) + hours) % 24;
 		let minutesRounded = (((minutes + 7.5)/15 | 0) * 15) % 60;
-		return { hour: hourRounded, minutes: minutesRounded }
+		if ( minutesRounded == 0 ) {
+			minutesRounded = '00';
+		}
+
+		return { hour: String( hourRounded ), minutes: String( minutesRounded ) }
 	}
 }

@@ -182,7 +182,7 @@
 }
 
 .filter-controls.open .filter-buttons {
-	max-height: 100vh;
+	max-height: 1000vh;
 }
 
 .filter-controls .filter-button,
