@@ -19,6 +19,7 @@ use WP_Query;
 
 $args = array(
 	'post_type' => 'crux_food-menu',
+	'posts_per_page' => -1,
 	'orderby' => 'date',
 );
 $career_query = new WP_Query($args);

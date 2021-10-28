@@ -52,7 +52,7 @@ function SundownerHour( ) {
 	function calculateSundowner( sunset ) {
 		const sundownerStart = new Date( sunset.getTime() - ( 30 * 60 * 1000 ) );
 		const sundownerEnd = new Date( sundownerStart.getTime() + ( 60 * 60 * 1000 ) );
-		return { start: sundownerStart, end: sundownerEnd }
+		return { start: sundownerStart, end: sundownerEnd };
 	}
 
 	function roundTime( hours, minutes ) {

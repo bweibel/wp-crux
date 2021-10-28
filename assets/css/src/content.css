@@ -261,6 +261,32 @@
 	margin-left: 1.5rem;
 }
 
+img.alignleft,
+img.alignright {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (--content-query) {
+
+	img.alignleft {
+		float: left;
+		margin-right: 1.5rem;
+	}
+
+
+	img.alignright {
+		float: right;
+		margin-left: 1.5rem;
+	}
+
+	img.alignleft,
+	img.alignright {
+		margin-bottom: 1rem;
+	}
+}
+
 .aligncenter {
 	clear: both;
 	display: block;
